@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vente de Croquettes - Espoir Canin</title>
+    <meta name="description"
+        content="Vente de croquettes Origin's pour chiens : chiot, adulte, sportif, sensible. Livraison possible autour de Natzwiller.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: var(--color-surface);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: rgba(89, 214, 0, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--color-primary);
+        }
+
+        .price-section {
+            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-titre-espoir-canin.png" alt="Espoir Canin Logo">
+                </a>
+            </div>
+            <button class="mobile-toggle" aria-label="Menu">☰</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pension.html">Pension</a></li>
+                    <li><a href="planning.html">Planning</a></li>
+                    <li><a href="croquettes.html" class="active">Croquettes</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero-small"
+            style="padding: 120px 0 60px; background: var(--gradient-hero); text-align: center;">
+            <div class="container">
+                <h1 style="font-size: 3rem; margin-bottom: 20px;">Nos Croquettes</h1>
+                <p style="color: var(--color-text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+                    Une alimentation saine et équilibrée avec la gamme <strong>Origin's</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- Product Content -->
+        <section style="padding: 60px 0;">
+            <div class="container">
+
+                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 50px;">
+                    <img src="assets/images/croquettes.jpg" alt="Sacs de croquettes Origin's"
+                        style="max-width: 100%; border-radius: 12px; box-shadow: var(--shadow-card);">
+                    <p style="margin-top: 20px; font-size: 1.1rem; max-width: 800px; text-align: center;">
+                        Espoir Canin a sélectionné pour vous 4 gammes de croquettes <strong>Origin's</strong> pour
+                        répondre aux besoins spécifiques de chaque chien.
+                    </p>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-icon">🍼</div>
+                        <h3>Start Puppy</h3>
+                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">20 kg</p>
+                        <p>De la gestation jusqu'au passage à l'âge adulte. Adapté à toutes les races.</p>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-icon">💪</div>
+                        <h3>Body-Fit</h3>
+                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">20 kg</p>
+                        <p>Chiens de travail, molosses, prise de poids/masse. Haute énergie.</p>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-icon">🌿</div>
+                        <h3>Sensitive-Skin</h3>
+                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">20 kg</p>
+                        <p>Chiens sensibles, problèmes de peau/pelage, allergies. <strong>Sans blé</strong>.</p>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-icon">⚖️</div>
+                        <h3>Original</h3>
+                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">18 kg</p>
+                        <p>Maintenance. Pour conserver un poids optimal au quotidien.</p>
+                    </div>
+                </div>
+
+                <div class="price-section">
+                    <h2>Tarifs Unique</h2>
+                    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
+                        <div>
+                            <p style="margin-bottom: 5px;">Sac de 20 kg</p>
+                            <div class="price-tag">80 €</div>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 5px;">Sac de 18 kg</p>
+                            <div class="price-tag">72 €</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; color: var(--color-text-muted);">
+                        🚚 Livraison possible (en supplément).
+                    </p>
+                    <div style="margin-top: 30px;">
+                        <a href="contact.html" class="btn btn-primary">Commander / Renseignements</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <img src="assets/images/logo_footer.png" alt="Espoir Canin Logo"
+                        style="max-width: 150px; margin-bottom: 15px;">
+                    <h3>Espoir Canin</h3>
+                    <p>Éducation et Rééducation canine en Alsace.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>67130 NATZWILLER</li>
+                        <li>06.76.02.25.86</li>
+                        <li>espoir.canin@outlook.fr</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Utiles</h3>
+                    <ul>
+                        <li><a href="mentions-legales.html" style="color: var(--color-text-muted);">Mentions Légales</a>
+                        </li>
+                        <li><a href="assets/docs/cgv.odt" style="color: var(--color-text-muted);">CGV (Télécharger)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Espoir Canin.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
