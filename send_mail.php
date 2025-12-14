@@ -32,9 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "Téléphone: $phone\n\n";
     $email_content .= "Message:\n$message\n";
 
-    $headers = "From: $name <$email>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
+    // Headers pour une meilleure délivrabilité (Important sur LWS/OVH)
+    // "From" doit idéalement être une adresse du domaine (ex: no-reply@votre-domaine.fr)
+    // Ici on met une adresse générique, mais l'idéal est de mettre "contact@espoir-canin.fr" si vous l'avez créée.
+    $from_server = "no-reply@espoir-canin.fr"; // À remplacer par une vraie adresse de votre hébergement si possible
+    
+    $headers = "From: Espoir Canin Site <$from_server>\r\n";
+    $headers .= "Reply-To: $name <$email>\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     // Envoi
     if (mail($to_email, $subject, $email_content, $headers)) {
