@@ -5,27 +5,32 @@
     --color-primary-dark: #4ab300;
     --color-secondary: #b73d3d;
     --color-accent: #233452;
-    
+
     /* Neutral Colors */
-    --color-bg-dark: #0f172a; /* Slate 900 */
-    --color-bg-darker: #020617; /* Slate 950 */
-    --color-surface: #1e293b; /* Slate 800 */
-    --color-text-main: #f8fafc; /* Slate 50 */
-    --color-text-muted: #94a3b8; /* Slate 400 */
+    --color-bg-dark: #0f172a;
+    /* Slate 900 */
+    --color-bg-darker: #020617;
+    /* Slate 950 */
+    --color-surface: #1e293b;
+    /* Slate 800 */
+    --color-text-main: #f8fafc;
+    /* Slate 50 */
+    --color-text-muted: #94a3b8;
+    /* Slate 400 */
     --color-white: #ffffff;
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--color-primary), #3da800);
-    --gradient-hero: linear-gradient(to bottom, rgba(2,6,23,0.3), var(--color-bg-darker));
-    
+    --gradient-hero: linear-gradient(to bottom, rgba(2, 6, 23, 0.3), var(--color-bg-darker));
+
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Spacing */
     --spacing-container: 1200px;
     --spacing-section: 4rem;
-    
+
     /* Effects */
     --glass-bg: rgba(30, 41, 59, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
@@ -33,7 +38,9 @@
     --shadow-glow: 0 0 15px rgba(89, 214, 0, 0.3);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -47,7 +54,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
@@ -132,7 +144,8 @@ img {
 }
 
 .logo img {
-    height: 60px; /* Adjust based on logo aspect ratio */
+    height: 60px;
+    /* Adjust based on logo aspect ratio */
 }
 
 .main-nav ul {
@@ -264,12 +277,14 @@ section {
 
     .main-nav {
         position: fixed;
-        top: 91px; /* Height of header roughly */
+        top: 91px;
+        /* Height of header roughly */
         left: 0;
         width: 100%;
         background: var(--color-bg-dark);
         padding: 20px;
-        transform: translateY(-100%); /* Hidden by default */
+        transform: translateY(-100%);
+        /* Hidden by default */
         opacity: 0;
         pointer-events: none;
         transition: all 0.3s ease;
@@ -287,8 +302,43 @@ section {
         gap: 20px;
         text-align: center;
     }
-    
+
     .section-title h2 {
         font-size: 2rem;
     }
+}
+
+/* Animations & Visuals */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+img {
+    border-radius: 12px;
+}
+
+.hero-small {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-small::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Better text readability */
+    z-index: 1;
+}
+
+.hero-small .container {
+    position: relative;
+    z-index: 2;
 }
