@@ -342,3 +342,28 @@ img {
     position: relative;
     z-index: 2;
 }
+
+/* Hover Animations */
+.hover-zoom {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(89, 214, 0, 0.2);
+}
+
+.service-card,
+.pension-card,
+.price-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover,
+.pension-card:hover,
+.price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
+    border-color: var(--color-primary);
+}
