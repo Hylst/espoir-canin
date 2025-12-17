@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning & Collectifs - Espoir Canin</title>
+    <meta name="description"
+        content="Planning des cours collectifs, balades éducatives et séances de Mantrailing chez Espoir Canin en Alsace.">
+    <meta name="keywords"
+        content="éducation canine, rééducation chien, pension canine, Alsace, Schirmeck, Natzwiller, balades collectives, mantrailing, éducateur canin">
+    <meta name="author" content="Espoir Canin - David Koessler">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://espoir-canin.fr/planning.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://espoir-canin.fr/planning.html">
+    <meta property="og:title" content="Planning Balades & Cours Collectifs - Espoir Canin">
+    <meta property="og:description"
+        content="Consultez le planning des balades collectives, cours de groupe et séances de mantrailing chez Espoir Canin en Alsace.">
+    <meta property="og:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Espoir Canin">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Planning Balades & Cours Collectifs - Espoir Canin">
+    <meta name="twitter:description"
+        content="Consultez le planning des balades collectives, cours de groupe et séances de mantrailing chez Espoir Canin en Alsace.">
+    <meta name="twitter:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Specific Styles for Planning */
+        .activity-card {
+            background: var(--color-surface);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-card);
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
+            border-color: var(--color-primary);
+        }
+
+        .activity-image {
+            transition: transform 0.4s ease;
+        }
+
+        .activity-card:hover .activity-image {
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 768px) {
+            .activity-card {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .activity-image {
+                width: 40%;
+                height: 300px;
+            }
+
+            .activity-content {
+                width: 60%;
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .activity-card {
+                flex-direction: column !important;
+            }
+
+            .activity-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .activity-content {
+                padding: 25px;
+            }
+        }
+
+        .activity-image {
+            object-fit: cover;
+        }
+
+        /* Calendar / Events Styles */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .event-type-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .event-type-balade {
+            border-color: #59d600;
+            color: #59d600;
+        }
+
+        .event-type-mantrailing {
+            border-color: #ffaa00;
+            color: #ffaa00;
+        }
+
+        .event-type-cours {
+            border-color: #00aaff;
+            color: #00aaff;
+        }
+
+        .filter-container {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--color-text-muted);
+            color: var(--color-text-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--color-primary);
+            color: #000;
+            border-color: var(--color-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-titre-espoir-canin.png" alt="Espoir Canin Logo">
+                </a>
+            </div>
+            <button class="mobile-toggle" aria-label="Menu">☰</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pension.html">Pension</a></li>
+                    <li><a href="planning.html" class="active">Planning</a></li>
+                    <li><a href="croquettes.html">Croquettes</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero-small"
+            style="padding: 100px 0 60px; background: var(--gradient-hero); text-align: center;">
+            <div class="container">
+                <h1 style="font-size: 3rem; margin-bottom: 20px;">Planning & Collectifs</h1>
+                <p style="color: var(--color-text-muted); font-size: 1.2rem;">Les prochaines dates pour les balades,
+                    cours et mantrailing !</p>
+            </div>
+        </section>
+
+        <!-- Activities Description -->
+        <section style="padding: 60px 0;">
+            <div class="container">
+
+                <div class="activity-card">
+                    <img src="assets/images/collectif-main.jpg" alt="Cours Collectif" class="activity-image">
+                    <div class="activity-content">
+                        <h2 style="color: var(--color-primary); margin-bottom: 15px;">Cours & Balades Collectives</h2>
+                        <p style="margin-bottom: 20px;">
+                            Les prestations collectives sont idéales pour travailler la socialisation de votre chien et
+                            renforcer vos acquis en présence de distractions (autres chiens, bruits, environnements
+                            variés).
+                        </p>
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">✅ Rencontres congénères contrôlées</li>
+                            <li style="margin-bottom: 10px;">✅ Gestion des émotions en groupe</li>
+                            <li style="margin-bottom: 10px;">✅ Apprentissage par imitation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card" style="flex-direction: row-reverse;">
+                    <img src="assets/images/mantrailing-action.jpg" alt="Mantrailing" class="activity-image">
+                    <div class="activity-content">
+                        <h2 style="color: var(--color-primary); margin-bottom: 15px;">Mantrailing (Pistage)</h2>
+                        <p style="margin-bottom: 20px;">
+                            Le Mantrailing est une activité ludique de recherche de personnes disparues. C'est un
+                            excellent moyen de dépenser mentalement votre chien tout en renforçant votre complicité.
+                        </p>
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">👃 Utilisation de l'odorat (sens principal du chien)</li>
+                            <li style="margin-bottom: 10px;">🧠 Dépense mentale intense</li>
+                            <li style="margin-bottom: 10px;">🤝 Développement de la confiance Maître/Chien</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section style="padding: 40px 0 80px; background: rgba(0,0,0,0.2);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 40px;">Prochaines Dates</h2>
+
+                <!-- Filters -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">Tout</button>
+                    <button class="filter-btn" data-filter="balade">Balades</button>
+                    <button class="filter-btn" data-filter="cours">Cours Collectifs</button>
+                    <button class="filter-btn" data-filter="mantrailing">Mantrailing</button>
+                </div>
+
+                <div id="events-container" class="events-grid">
+                    <!-- Events will be loaded here via JS -->
+                    <p style="text-align: center; width: 100%; grid-column: 1 / -1;">Chargement des événements...</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <p style="margin-bottom: 20px;">Vous souhaitez vous inscrire à un événement ?</p>
+                    <a href="contact.html" class="btn btn-primary">Me contacter / S'inscrire</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Utiles</h3>
+                    <ul>
+                        <li><a href="conseils.html" style="color: var(--color-text-muted);">Conseils & Vision</a>
+                        </li>
+                        <li><a href="mentions-legales.html" style="color: var(--color-text-muted);">Mentions Légales</a>
+                        </li>
+                        <li><a href="cgv.html" style="color: var(--color-text-muted);">Conditions Générales de Vente</a>
+                        </li>
+                        <li><a href="assets/docs/cgv.odt" style="color: var(--color-text-muted);">CGV (Télécharger)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Espoir Canin. Conception : <a href="https://www.linkedin.com/in/geoffroy-streit/"
+                    target="_blank" style="color: var(--color-text-muted); text-decoration: underline;">Geoffroy
+                    Streit</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Inline script for events loading for now, or move to main.js if preferred.
+        // Let's keep it simple and clean.
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('events-container');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            fetch('assets/events.json')
+                .then(response => response.json())
+                .then(events => {
+                    renderEvents(events);
+
+                    // Filter Logic
+                    filterBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            // Active State
+                            filterBtns.forEach(b => b.classList.remove('active'));
+                            btn.classList.add('active');
+
+                            const filterType = btn.getAttribute('data-filter');
+                            if (filterType === 'all') {
+                                renderEvents(events);
+                            } else {
+                                const filtered = events.filter(e => e.type === filterType);
+                                renderEvents(filtered);
+                            }
+                        });
+                    });
+                })
+                .catch(err => {
+                    console.error('Error loading events:', err);
+                    container.innerHTML = '<p style="text-align: center; color: var(--color-danger);">Impossible de charger les événements pour le moment.</p>';
+                });
+
+            function renderEvents(eventsList) {
+                container.innerHTML = '';
+                if (eventsList.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1 / -1;">Aucun événement trouvé pour cette catégorie.</p>';
+                    return;
+                }
+
+                eventsList.forEach(event => {
+                    const dateObj = new Date(event.date);
+                    const formattedDate = dateObj.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+
+                    const card = document.createElement('div');
+                    card.className = 'event-card';
+                    // Determine badge color class based on type
+                    let badgeClass = 'event-type-' + event.type;
+
+                    card.innerHTML = `
+                        <span class="event-type-badge ${badgeClass}">${event.type.charAt(0).toUpperCase() + event.type.slice(1)}</span>
+                        <span class="event-date">${formattedDate} - ${event.time}</span>
+                        <h3 style="margin-bottom: 10px; font-size: 1.2rem;">${event.title}</h3>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem;">${event.description}</p>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
