@@ -1,59 +1,68 @@
 <?php
-/*
- * Script d'envoi de mail simple pour Espoir Canin
- * Compatible avec les hébergeurs classiques (LWS, OVH...) supportant la fonction mail()
- */
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Configuration
-$to_email = "espoir.canin@outlook.fr"; // VOTRE ADRESSE EMAIL
-$subject_prefix = "[Site Web] Nouveau message de : ";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-// Vérification de la méthode
+require 'assets/php/PHPMailer/Exception.php';
+require 'assets/php/PHPMailer/PHPMailer.php';
+require 'assets/php/PHPMailer/SMTP.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    // Récupération et nettoyage des données
     $name = strip_tags(trim($_POST["name"]));
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $phone = strip_tags(trim($_POST["phone"]));
     $message = trim($_POST["message"]);
 
-    // Validation basique
     if (empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Erreur
-        header("Location: contact.html?status=error&msg=invalid_input");
+        http_response_code(400);
+        echo "Merci de remplir tous les champs correctement.";
         exit;
     }
 
-    // Construction du mail
-    $subject = $subject_prefix . $name;
-    
-    $email_content = "Nom: $name\n";
-    $email_content .= "Email: $email\n";
-    $email_content .= "Téléphone: $phone\n\n";
-    $email_content .= "Message:\n$message\n";
+    $mail = new PHPMailer(true);
 
-    // Headers pour une meilleure délivrabilité (Important sur LWS/OVH)
-    // "From" doit idéalement être une adresse du domaine (ex: no-reply@votre-domaine.fr)
-    // Ici on met une adresse générique, mais l'idéal est de mettre "contact@espoir-canin.fr" si vous l'avez créée.
-    $from_server = "no-reply@espoir-canin.fr"; // À remplacer par une vraie adresse de votre hébergement si possible
-    
-    $headers = "From: Espoir Canin Site <$from_server>\r\n";
-    $headers .= "Reply-To: $name <$email>\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    try {
+        //Server settings
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'espoir.canin.67@gmail.com';
+        $mail->Password   = 'Ytpy segm mxsz cddk'; // Application Password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+        $mail->CharSet    = 'UTF-8';
 
-    // Envoi
-    if (mail($to_email, $subject, $email_content, $headers)) {
-        // Succès
-        header("Location: contact.html?status=success");
-    } else {
-        // Echec serveur
-        header("Location: contact.html?status=error&msg=server_error");
+        //Recipients
+        $mail->setFrom('espoir.canin.67@gmail.com', 'Site Espoir Canin');
+        $mail->addAddress('espoir.canin@outlook.fr');
+        $mail->addReplyTo($email, $name);
+
+        //Content
+        $mail->isHTML(true);
+        $mail->Subject = "Nouveau contact de $name - Espoir Canin";
+        $mail->Body    = "
+            <h2>Nouveau message depuis le site web</h2>
+            <p><strong>Nom :</strong> $name</p>
+            <p><strong>Email :</strong> $email</p>
+            <p><strong>Téléphone :</strong> $phone</p>
+            <p><strong>Message :</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>
+        ";
+        $mail->AltBody = "Nom: $name\nEmail: $email\nTéléphone: $phone\nMessage:\n$message";
+
+        $mail->send();
+        http_response_code(200);
+        echo "Merci ! Votre message a bien été envoyé.";
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo "Oups ! Une erreur s'est produite et votre message n'a pas pu être envoyé. Erreur Mailer: {$mail->ErrorInfo}";
     }
-
 } else {
-    // Accès direct interdit
-    header("Location: contact.html");
+    http_response_code(403);
+    echo "Il y a eu un problème avec votre soumission, veuillez réessayer.";
 }
 ?>

@@ -151,6 +151,8 @@ img {
 .main-nav ul {
     display: flex;
     gap: 30px;
+    align-items: center;
+    /* Ensures vertical alignment of all items including the button */
 }
 
 .main-nav a {
@@ -240,6 +242,27 @@ footer {
     background: var(--color-primary);
     color: #fff;
     transform: translateY(-3px);
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav .btn {
+    padding: 8px 25px;
+    /* Reduced and balanced padding */
+    margin-top: 0;
+    /* Ensures no extra margin affects alignment */
+    font-size: 0.9rem;
+    /* Slightly smaller text for better fit */
+}
+
+.main-nav ul li a:hover {
+    color: var(--color-primary);
 }
 
 /* Sections */
@@ -366,7 +389,7 @@ img {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
     border-color: var(--color-primary);
-<<<<<<< HEAD
+
 }
 
 /* Info Card Hover Scale */
@@ -397,6 +420,15 @@ img {
         transform: translateY(0);
         letter-spacing: normal;
     }
-=======
->>>>>>> 81a4c82c90b2d785e208cb5dbe152b38e12f545d
+}
+
+/* Hover Scale Animation */
+.hover-scale {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+    /* Zoom effect */
 }
