@@ -7,7 +7,8 @@
     <title>Pension Canine - Espoir Canin</title>
     <meta name="description"
         content="Pension canine en Alsace (Natzwiller). Deux formules : Pension Chenil relax (parc détente) et Pension Familiale (vie en maison). Cadre sécurisé.">
-    <meta name="keywords" content="éducation canine, rééducation chien, pension canine, Alsace, Schirmeck, Natzwiller, balades collectives, mantrailing, éducateur canin">
+    <meta name="keywords"
+        content="éducation canine, rééducation chien, pension canine, Alsace, Schirmeck, Natzwiller, balades collectives, mantrailing, éducateur canin">
     <meta name="author" content="Espoir Canin - David Koessler">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://espoir-canin.fr/pension.html">
@@ -16,7 +17,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://espoir-canin.fr/pension.html">
     <meta property="og:title" content="Pension Canine Familiale - Espoir Canin Alsace">
-    <meta property="og:description" content="Pension canine type familial ou chenil en Alsace. Votre chien sera chouchouté pendant votre absence.">
+    <meta property="og:description"
+        content="Pension canine type familial ou chenil en Alsace. Votre chien sera chouchouté pendant votre absence.">
     <meta property="og:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Espoir Canin">
@@ -24,7 +26,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pension Canine Familiale - Espoir Canin Alsace">
-    <meta name="twitter:description" content="Pension canine type familial ou chenil en Alsace. Votre chien sera chouchouté pendant votre absence.">
+    <meta name="twitter:description"
+        content="Pension canine type familial ou chenil en Alsace. Votre chien sera chouchouté pendant votre absence.">
     <meta name="twitter:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
 
     <link
@@ -41,6 +44,24 @@
             margin-bottom: 40px;
             display: flex;
             flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .pension-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
+            border-color: var(--color-primary);
+        }
+
+        .pension-img {
+            transition: transform 0.4s ease;
+            border-radius: 12px;
+        }
+
+        .pension-card:hover .pension-img {
+            transform: scale(1.03);
         }
 
         @media (min-width: 768px) {
@@ -55,7 +76,7 @@
 
             .pension-img {
                 width: 40%;
-                height: 300px;
+                height: 400px;
                 object-fit: cover;
             }
 
@@ -67,7 +88,7 @@
 
         .pension-img {
             width: 100%;
-            height: 250px;
+            height: 350px;
             object-fit: cover;
         }
 
@@ -234,7 +255,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2025 Espoir Canin. Conception : <a href="https://www.linkedin.com/in/geoffroy-streit/" target="_blank" style="color: var(--color-text-muted); text-decoration: underline;">Geoffroy Streit</a>
+                &copy; 2025 Espoir Canin. Conception : <a href="https://www.linkedin.com/in/geoffroy-streit/"
+                    target="_blank" style="color: var(--color-text-muted); text-decoration: underline;">Geoffroy
+                    Streit</a>
             </div>
         </div>
     </footer>
@@ -243,4 +266,3 @@
 </body>
 
 </html>
-

@@ -7,7 +7,8 @@
     <title>Vente de Croquettes - Espoir Canin</title>
     <meta name="description"
         content="Vente de croquettes Origin's pour chiens : chiot, adulte, sportif, sensible. Livraison possible autour de Natzwiller.">
-    <meta name="keywords" content="éducation canine, rééducation chien, pension canine, Alsace, Schirmeck, Natzwiller, balades collectives, mantrailing, éducateur canin">
+    <meta name="keywords"
+        content="éducation canine, rééducation chien, pension canine, Alsace, Schirmeck, Natzwiller, balades collectives, mantrailing, éducateur canin">
     <meta name="author" content="Espoir Canin - David Koessler">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://espoir-canin.fr/croquettes.html">
@@ -16,7 +17,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://espoir-canin.fr/croquettes.html">
     <meta property="og:title" content="Alimentation Canine de Qualité - Espoir Canin">
-    <meta property="og:description" content="Conseils et vente d'alimentation de qualité pour votre chien. Croquettes premium et naturelles.">
+    <meta property="og:description"
+        content="Conseils et vente d'alimentation de qualité pour votre chien. Croquettes premium et naturelles.">
     <meta property="og:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Espoir Canin">
@@ -24,7 +26,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Alimentation Canine de Qualité - Espoir Canin">
-    <meta name="twitter:description" content="Conseils et vente d'alimentation de qualité pour votre chien. Croquettes premium et naturelles.">
+    <meta name="twitter:description"
+        content="Conseils et vente d'alimentation de qualité pour votre chien. Croquettes premium et naturelles.">
     <meta name="twitter:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
 
     <link
@@ -84,6 +87,72 @@
             color: var(--color-primary);
             margin: 10px 0;
         }
+
+        /* Shake animation on hover */
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        .shake-on-hover:hover {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .shake-on-hover {
+            transition: transform 0.3s ease;
+        }
+
+        /* Animated text - Wave effect */
+        .brand-wave {
+            display: inline-block;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .brand-wave span {
+            display: inline-block;
+            animation: wave 1.5s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Price section hover */
+        .price-section {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .price-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
+        }
     </style>
 </head>
 
@@ -119,7 +188,8 @@
             <div class="container">
                 <h1 style="font-size: 3rem; margin-bottom: 20px;">Nos Croquettes</h1>
                 <p style="color: var(--color-text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
-                    Une alimentation saine et équilibrée avec la gamme <strong>Origin's</strong>.
+                    Une alimentation saine et équilibrée avec la gamme <span class="brand-wave"
+                        id="origins-text">Origin's</span>.
                 </p>
             </div>
         </section>
@@ -129,8 +199,8 @@
             <div class="container">
 
                 <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 50px;">
-                    <img src="assets/images/croquettes.jpg" alt="Sacs de croquettes Origin's"
-                        style="max-width: 100%; border-radius: 12px; box-shadow: var(--shadow-card);">
+                    <img src="assets/images/croquettes.jpg" alt="Sacs de croquettes Origin's" class="shake-on-hover"
+                        style="max-width: 100%; border-radius: 12px; box-shadow: var(--shadow-card); cursor: pointer;">
                     <p style="margin-top: 20px; font-size: 1.1rem; max-width: 800px; text-align: center;">
                         Espoir Canin a sélectionné pour vous 4 gammes de croquettes <strong>Origin's</strong> pour
                         répondre aux besoins spécifiques de chaque chien.
@@ -227,13 +297,30 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2025 Espoir Canin. Conception : <a href="https://www.linkedin.com/in/geoffroy-streit/" target="_blank" style="color: var(--color-text-muted); text-decoration: underline;">Geoffroy Streit</a>
+                &copy; 2025 Espoir Canin. Conception : <a href="https://www.linkedin.com/in/geoffroy-streit/"
+                    target="_blank" style="color: var(--color-text-muted); text-decoration: underline;">Geoffroy
+                    Streit</a>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        // Wave animation for Origin's text
+        document.addEventListener('DOMContentLoaded', () => {
+            const waveText = document.getElementById('origins-text');
+            if (waveText) {
+                const text = waveText.textContent;
+                waveText.innerHTML = '';
+                text.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    span.style.animationDelay = `${index * 0.1}s`;
+                    waveText.appendChild(span);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
-
