@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://espoir-canin.fr/sitemap.xml
