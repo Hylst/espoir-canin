@@ -128,12 +128,10 @@
 
         .event-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 15px;
+            flex-direction: column;
+            /* Stacked by default for mobile */
+            gap: 8px;
             margin-bottom: 15px;
-            flex-wrap: wrap;
-            /* Key for mobile stacking */
         }
 
         .event-date {
@@ -142,8 +140,6 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 0;
-            /* Managed by header gap/wrap */
             display: block;
         }
 
@@ -158,19 +154,24 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            white-space: nowrap;
+            width: fit-content;
+            order: -1;
+            /* Badge ALWAYS above date on mobile */
         }
 
-        /* Mobile specific stacking for header */
-        @media (max-width: 600px) {
+        /* Side-by-side layout only for Desktop/Tablet */
+        @media (min-width: 768px) {
             .event-header {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px;
             }
 
             .event-type-badge {
-                order: -1;
-                /* Badge above date on specialized mobile view */
+                order: 1;
+                /* Move badge to the right on desktop */
+                margin-bottom: 0;
             }
         }
 
