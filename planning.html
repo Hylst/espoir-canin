@@ -147,20 +147,18 @@
 
         .event-type-badge {
             position: static !important;
-            /* Kill any absolute positioning */
             display: inline-block !important;
             font-size: 0.75rem !important;
-            padding: 4px 10px !important;
-            border-radius: 4px !important;
-            background: rgba(0, 0, 0, 0.5) !important;
-            color: white !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            font-weight: 600 !important;
+            padding: 5px 12px !important;
+            border-radius: 6px !important;
+            font-weight: 700 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.5px !important;
             width: fit-content !important;
             order: -1 !important;
-            /* Badge at the very top */
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Side-by-side only on Large screens where overlap is impossible */
@@ -178,18 +176,21 @@
         }
 
         .event-type-balade {
-            border-color: #59d600;
-            color: #59d600;
+            border-color: #59d600 !important;
+            color: #59d600 !important;
+            background: rgba(89, 214, 0, 0.1) !important;
         }
 
         .event-type-mantrailing {
-            border-color: #ffaa00;
-            color: #ffaa00;
+            border-color: #ffaa00 !important;
+            color: #ffaa00 !important;
+            background: rgba(255, 170, 0, 0.1) !important;
         }
 
         .event-type-cours {
-            border-color: #00aaff;
-            color: #00aaff;
+            border-color: #00aaff !important;
+            color: #00aaff !important;
+            background: rgba(0, 170, 255, 0.1) !important;
         }
 
         .filter-container {
