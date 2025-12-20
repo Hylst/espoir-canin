@@ -116,6 +116,8 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .event-card:hover {
@@ -124,26 +126,52 @@
             background: rgba(255, 255, 255, 0.06);
         }
 
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            /* Key for mobile stacking */
+        }
+
         .event-date {
             font-size: 0.9rem;
             color: var(--color-primary);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 10px;
+            margin-bottom: 0;
+            /* Managed by header gap/wrap */
             display: block;
         }
 
         .event-type-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
+            display: inline-block;
             font-size: 0.75rem;
-            padding: 4px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        /* Mobile specific stacking for header */
+        @media (max-width: 600px) {
+            .event-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .event-type-badge {
+                order: -1;
+                /* Badge above date on specialized mobile view */
+            }
         }
 
         .event-type-balade {
@@ -159,20 +187,6 @@
         .event-type-cours {
             border-color: #00aaff;
             color: #00aaff;
-        }
-
-        @media (max-width: 480px) {
-            .event-type-badge {
-                position: relative;
-                top: auto;
-                right: auto;
-                display: inline-block;
-                margin-bottom: 8px;
-            }
-
-            .event-date {
-                margin-top: 0;
-            }
         }
 
         .filter-container {
@@ -386,8 +400,10 @@
                     let badgeClass = 'event-type-' + event.type;
 
                     card.innerHTML = `
-                        <span class="event-type-badge ${badgeClass}">${event.type.charAt(0).toUpperCase() + event.type.slice(1)}</span>
-                        <span class="event-date">${formattedDate} - ${event.time}</span>
+                        <div class="event-header">
+                            <span class="event-date">${formattedDate} - ${event.time}</span>
+                            <span class="event-type-badge ${badgeClass}">${event.type.charAt(0).toUpperCase() + event.type.slice(1)}</span>
+                        </div>
                         <h3 style="margin-bottom: 10px; font-size: 1.2rem;">${event.title}</h3>
                         <p style="color: var(--color-text-muted); font-size: 0.95rem;">${event.description}</p>
                     `;
