@@ -127,51 +127,53 @@
         }
 
         .event-header {
-            display: flex;
-            flex-direction: column;
-            /* Stacked by default for mobile */
-            gap: 8px;
-            margin-bottom: 15px;
+            display: flex !important;
+            flex-direction: column !important;
+            /* Force stack on mobile */
+            gap: 10px !important;
+            margin-bottom: 15px !important;
+            align-items: flex-start !important;
         }
 
         .event-date {
-            font-size: 0.9rem;
-            color: var(--color-primary);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
+            font-size: 0.9rem !important;
+            color: var(--color-primary) !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            display: block !important;
+            line-height: 1.2 !important;
         }
 
         .event-type-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            width: fit-content;
-            order: -1;
-            /* Badge ALWAYS above date on mobile */
+            position: static !important;
+            /* Kill any absolute positioning */
+            display: inline-block !important;
+            font-size: 0.75rem !important;
+            padding: 4px 10px !important;
+            border-radius: 4px !important;
+            background: rgba(0, 0, 0, 0.5) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            width: fit-content !important;
+            order: -1 !important;
+            /* Badge at the very top */
         }
 
-        /* Side-by-side layout only for Desktop/Tablet */
-        @media (min-width: 768px) {
+        /* Side-by-side only on Large screens where overlap is impossible */
+        @media (min-width: 992px) {
             .event-header {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                gap: 15px;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
             }
 
             .event-type-badge {
-                order: 1;
-                /* Move badge to the right on desktop */
-                margin-bottom: 0;
+                order: 1 !important;
+                margin-bottom: 0 !important;
             }
         }
 
