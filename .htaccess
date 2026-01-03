@@ -1,0 +1,110 @@
+# ===========================================
+# ESPOIR CANIN - Configuration Apache (.htaccess)
+# ===========================================
+# 
+# Ce fichier configure le serveur Apache pour :
+# - Améliorer les performances (cache, compression)
+# - Sécuriser le site
+# - Gérer les redirections
+#
+# Site : https://espoir-canin.fr/
+# ===========================================
+
+# -------------------------------------------
+# REDIRECTIONS HTTPS ET WWW
+# Forcer HTTPS et rediriger www vers non-www
+# -------------------------------------------
+RewriteEngine On
+
+# Forcer HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Rediriger www vers non-www
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# -------------------------------------------
+# COMPRESSION GZIP
+# Compresser les fichiers pour un chargement plus rapide
+# -------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# -------------------------------------------
+# MISE EN CACHE
+# Définir la durée de cache pour les ressources statiques
+# -------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images : cache 1 mois
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS et JavaScript : cache 1 semaine
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    
+    # Polices : cache 1 mois
+    ExpiresByType font/woff2 "access plus 1 month"
+    ExpiresByType font/woff "access plus 1 month"
+    
+    # HTML : cache 1 jour
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
+
+# -------------------------------------------
+# SÉCURITÉ
+# Headers de sécurité de base
+# -------------------------------------------
+<IfModule mod_headers.c>
+    # Empêcher le clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Empêcher le MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Activer la protection XSS
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Politique de référent
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# -------------------------------------------
+# ERREURS PERSONNALISÉES
+# -------------------------------------------
+ErrorDocument 404 /index.html
+
+# -------------------------------------------
+# PROTECTION DES FICHIERS SENSIBLES
+# -------------------------------------------
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(md|json|odt)$">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+</FilesMatch>
+
+# Bloquer l'accès aux fichiers PHP de configuration
+<FilesMatch "send_mail\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>

@@ -1,43 +1,90 @@
-/* CSS Variables & Reset */
+/* ===========================================
+   ESPOIR CANIN - Feuille de Styles Principale
+   ============================================
+   
+   Site officiel : https://espoir-canin.fr/
+   Éducateur canin à Natzwiller (67130), Alsace
+   
+   Ce fichier contient tous les styles du site :
+   - Variables CSS (couleurs, typographies, espacements)
+   - Reset et styles de base
+   - Composants (boutons, cartes, header, footer)
+   - Animations et effets visuels
+   - Media queries pour le responsive
+   
+   Conception : Geoffroy Streit
+   Dernière mise à jour : Janvier 2025
+============================================ */
+
+/* ===========================================
+   VARIABLES CSS
+   
+   On utilise des variables CSS (custom properties)
+   pour centraliser toutes les valeurs de design.
+   Cela facilite la maintenance et les changements
+   de thème si besoin.
+============================================ */
 :root {
-    /* Brand Colors */
+    /* -----------------------------------
+       Couleurs de la marque
+       Le vert #59d600 est la couleur signature
+       d'Espoir Canin, visible sur le logo
+    ----------------------------------- */
     --color-primary: #59d600;
     --color-primary-dark: #4ab300;
     --color-secondary: #b73d3d;
     --color-accent: #233452;
 
-    /* Neutral Colors */
-    --color-bg-dark: #0f172a;
-    /* Slate 900 */
-    --color-bg-darker: #020617;
-    /* Slate 950 */
-    --color-surface: #1e293b;
-    /* Slate 800 */
-    --color-text-main: #f8fafc;
-    /* Slate 50 */
-    --color-text-muted: #94a3b8;
-    /* Slate 400 */
+    /* -----------------------------------
+       Couleurs neutres (palette Slate)
+       On utilise des teintes de gris/bleu
+       pour un look moderne et professionnel
+    ----------------------------------- */
+    --color-bg-dark: #0f172a;      /* Fond des sections */
+    --color-bg-darker: #020617;    /* Fond principal (très sombre) */
+    --color-surface: #1e293b;      /* Fonds des cartes */
+    --color-text-main: #f8fafc;    /* Texte principal (presque blanc) */
+    --color-text-muted: #94a3b8;   /* Texte secondaire (gris clair) */
     --color-white: #ffffff;
 
-    /* Gradients */
+    /* -----------------------------------
+       Dégradés (Gradients)
+       Utilisés pour les boutons et les fonds
+    ----------------------------------- */
     --gradient-primary: linear-gradient(135deg, var(--color-primary), #3da800);
     --gradient-hero: linear-gradient(to bottom, rgba(2, 6, 23, 0.3), var(--color-bg-darker));
 
-    /* Typography */
+    /* -----------------------------------
+       Typographies
+       - Outfit : pour les titres (moderne, impactant)
+       - Inter : pour le texte (lisible, propre)
+    ----------------------------------- */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
 
-    /* Spacing */
+    /* -----------------------------------
+       Espacements
+       Valeurs standardisées pour la cohérence
+    ----------------------------------- */
     --spacing-container: 1200px;
     --spacing-section: 4rem;
 
-    /* Effects */
+    /* -----------------------------------
+       Effets visuels
+       Glassmorphism et ombres pour les cartes
+    ----------------------------------- */
     --glass-bg: rgba(30, 41, 59, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
     --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-glow: 0 0 15px rgba(89, 214, 0, 0.3);
 }
 
+/* ===========================================
+   RESET CSS
+   
+   On réinitialise les styles par défaut du
+   navigateur pour partir sur une base propre
+============================================ */
 *,
 *::before,
 *::after {
@@ -46,48 +93,61 @@
     padding: 0;
 }
 
+/* ===========================================
+   STYLES DE BASE
+   Corps de la page et éléments génériques
+============================================ */
 body {
     font-family: var(--font-body);
     background-color: var(--color-bg-darker);
     color: var(--color-text-main);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Évite le scroll horizontal */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Tous les titres utilisent la police Outfit */
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-white);
 }
 
+/* Liens sans soulignement par défaut */
 a {
     text-decoration: none;
     color: inherit;
     transition: color 0.3s ease;
 }
 
+/* Listes sans puces par défaut */
 ul {
     list-style: none;
 }
 
+/* Images responsives avec coins arrondis */
 img {
     max-width: 100%;
     display: block;
+    border-radius: 12px;
 }
 
-/* Base Components */
+/* ===========================================
+   COMPOSANTS DE BASE
+   Container, boutons et éléments réutilisables
+============================================ */
+
+/* Container centré avec largeur max */
 .container {
     max-width: var(--spacing-container);
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* -----------------------------------
+   Boutons
+   Deux styles : primary (plein) et outline (bordure)
+----------------------------------- */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -101,6 +161,7 @@ img {
     border: none;
 }
 
+/* Bouton principal vert avec dégradé */
 .btn-primary {
     background: var(--gradient-primary);
     color: #fff;
@@ -112,6 +173,7 @@ img {
     box-shadow: 0 6px 20px rgba(89, 214, 0, 0.6);
 }
 
+/* Bouton avec bordure verte (ghost button) */
 .btn-outline {
     background: transparent;
     border: 2px solid var(--color-primary);
@@ -123,7 +185,13 @@ img {
     color: #fff;
 }
 
-/* Header */
+/* ===========================================
+   HEADER - Navigation principale
+   
+   Le header est fixe en haut de la page avec
+   un effet de flou (backdrop-filter).
+   Il devient plus compact au scroll.
+============================================ */
 .site-header {
     position: fixed;
     top: 0;
@@ -132,6 +200,7 @@ img {
     z-index: 1000;
     background: rgba(2, 6, 23, 0.8);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
     border-bottom: 1px solid var(--glass-border);
     padding: 15px 0;
     transition: all 0.3s ease;
@@ -143,16 +212,16 @@ img {
     justify-content: space-between;
 }
 
+/* Logo dans le header */
 .logo img {
     height: 60px;
-    /* Adjust based on logo aspect ratio */
 }
 
+/* Navigation principale (menu) */
 .main-nav ul {
     display: flex;
     gap: 30px;
     align-items: center;
-    /* Ensures vertical alignment of all items including the button */
 }
 
 .main-nav a {
@@ -162,6 +231,7 @@ img {
     padding: 5px 0;
 }
 
+/* Effet de soulignement animé au survol */
 .main-nav a::after {
     content: '';
     position: absolute;
@@ -178,11 +248,35 @@ img {
     width: 100%;
 }
 
+/* Lien actif en vert */
 .main-nav a.active {
     color: var(--color-primary);
 }
 
-/* Mobile Menu Toggle */
+/* Style des liens de navigation */
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--color-primary);
+}
+
+/* Bouton Contact dans le menu */
+.main-nav .btn {
+    padding: 8px 25px;
+    margin-top: 0;
+    font-size: 0.9rem;
+}
+
+/* -----------------------------------
+   Bouton hamburger (menu mobile)
+   Caché par défaut, visible sur mobile
+----------------------------------- */
 .mobile-toggle {
     display: none;
     font-size: 1.5rem;
@@ -192,7 +286,10 @@ img {
     cursor: pointer;
 }
 
-/* Footer */
+/* ===========================================
+   FOOTER
+   Pied de page avec informations de contact
+============================================ */
 footer {
     background: var(--color-bg-dark);
     padding: 60px 0 20px;
@@ -221,6 +318,7 @@ footer {
     color: var(--color-text-muted);
 }
 
+/* Liens réseaux sociaux dans le footer */
 .social-links {
     display: flex;
     gap: 15px;
@@ -244,32 +342,15 @@ footer {
     transform: translateY(-3px);
 }
 
-.main-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.main-nav .btn {
-    padding: 8px 25px;
-    /* Reduced and balanced padding */
-    margin-top: 0;
-    /* Ensures no extra margin affects alignment */
-    font-size: 0.9rem;
-    /* Slightly smaller text for better fit */
-}
-
-.main-nav ul li a:hover {
-    color: var(--color-primary);
-}
-
-/* Sections */
+/* ===========================================
+   SECTIONS
+   Styles génériques pour les sections de contenu
+============================================ */
 section {
     padding: var(--spacing-section) 0;
 }
 
+/* Titre de section centré avec divider */
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
@@ -278,12 +359,14 @@ section {
 .section-title h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    /* Effet de dégradé sur le texte */
     background: linear-gradient(to right, #fff, var(--color-text-muted));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
+/* Petite barre verte sous le titre */
 .section-title .divider {
     width: 60px;
     height: 4px;
@@ -292,7 +375,7 @@ section {
     border-radius: 2px;
 }
 
-/* Intro Grid System */
+/* Grille pour la section intro (2 colonnes) */
 .intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -301,56 +384,16 @@ section {
     align-items: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .intro-grid {
-        grid-template-columns: 1fr;
-    }
+/* ===========================================
+   ANIMATIONS & EFFETS VISUELS
+   Pour rendre le site plus dynamique et moderne
+============================================ */
 
-    .intro-grid .intro-image {
-        order: -1;
-        /* Image appears above text on mobile */
-        margin-bottom: 20px;
-    }
-
-    .mobile-toggle {
-        display: block;
-    }
-
-    .main-nav {
-        position: fixed;
-        top: 91px;
-        /* Height of header roughly */
-        left: 0;
-        width: 100%;
-        background: var(--color-bg-dark);
-        padding: 20px;
-        transform: translateY(-100%);
-        /* Hidden by default */
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s ease;
-        border-bottom: 1px solid var(--glass-border);
-    }
-
-    .main-nav.is-open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .section-title h2 {
-        font-size: 2rem;
-    }
-}
-
-/* Animations & Visuals */
+/* -----------------------------------
+   Scroll Reveal
+   Les éléments apparaissent en fondu
+   quand ils entrent dans le viewport
+----------------------------------- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -362,10 +405,11 @@ section {
     transform: translateY(0);
 }
 
-img {
-    border-radius: 12px;
-}
-
+/* -----------------------------------
+   Hero Small
+   Styles pour les pages intérieures
+   (avec overlay pour la lisibilité)
+----------------------------------- */
 .hero-small {
     position: relative;
     overflow: hidden;
@@ -376,7 +420,6 @@ img {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    /* Better text readability */
     z-index: 1;
 }
 
@@ -385,7 +428,10 @@ img {
     z-index: 2;
 }
 
-/* Hover Animations */
+/* -----------------------------------
+   Hover Zoom
+   Effet de zoom au survol des images
+----------------------------------- */
 .hover-zoom {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
@@ -396,6 +442,10 @@ img {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(89, 214, 0, 0.2);
 }
 
+/* -----------------------------------
+   Cartes interactives
+   Effet de soulèvement au survol
+----------------------------------- */
 .service-card,
 .pension-card,
 .price-card {
@@ -408,10 +458,9 @@ img {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
     border-color: var(--color-primary);
-
 }
 
-/* Info Card Hover Scale */
+/* Info Card avec effet scale */
 .info-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -421,7 +470,10 @@ img {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(89, 214, 0, 0.15);
 }
 
-/* Animated Title - Fade In Slide Animation */
+/* -----------------------------------
+   Titre animé
+   Effet de slide-in depuis le bas
+----------------------------------- */
 .animated-title {
     display: inline-block;
     animation: titleFadeIn 1s ease-out forwards;
@@ -433,7 +485,6 @@ img {
         transform: translateY(30px);
         letter-spacing: 8px;
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -441,13 +492,64 @@ img {
     }
 }
 
-/* Hover Scale Animation */
-.hover-scale {
-    transition: transform 0.3s ease;
-    display: inline-block;
+/* ===========================================
+   RESPONSIVE DESIGN
+   Adaptation pour les écrans plus petits
+============================================ */
+
+@media (max-width: 768px) {
+    /* Grille intro sur une colonne */
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Image au-dessus du texte sur mobile */
+    .intro-grid .intro-image {
+        order: -1;
+        margin-bottom: 20px;
+    }
+
+    /* Afficher le bouton hamburger */
+    .mobile-toggle {
+        display: block;
+    }
+
+    /* Menu mobile caché par défaut */
+    .main-nav {
+        position: fixed;
+        top: 91px; /* Hauteur du header */
+        left: 0;
+        width: 100%;
+        background: var(--color-bg-dark);
+        padding: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    /* Menu ouvert (classe ajoutée par JS) */
+    .main-nav.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* Menu vertical sur mobile */
+    .main-nav ul {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    /* Titres plus petits sur mobile */
+    .section-title h2 {
+        font-size: 2rem;
+    }
 }
 
-.hover-scale:hover {
-    transform: scale(1.05);
-    /* Zoom effect */
-}
+/* ===========================================
+   FIN DU FICHIER
+   Merci d'avoir lu ces commentaires ! 🐕
+============================================ */
