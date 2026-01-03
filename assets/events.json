@@ -6,7 +6,7 @@
         "time": "18:00",
         "type": "cours",
         "description": "Le Bergopré. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.jpg"
+        "image": "assets/images/collectif-side.webp"
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "time": "10:30",
         "type": "balade",
         "description": "Bergopré. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.jpg"
+        "image": "assets/images/collectif-main.webp"
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "time": "14:00",
         "type": "cours",
         "description": "Bergopré. 14h à 16h30. 50€. Place valide lors de la réception du paiement.",
-        "image": "assets/images/collectif-side.jpg"
+        "image": "assets/images/collectif-side.webp"
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@
         "time": "10:30",
         "type": "cours",
         "description": "Le Bergopré. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.jpg"
+        "image": "assets/images/collectif-side.webp"
     },
     {
         "id": 5,
@@ -42,7 +42,7 @@
         "time": "18:00",
         "type": "cours",
         "description": "Le Bergopré. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.jpg"
+        "image": "assets/images/collectif-side.webp"
     },
     {
         "id": 6,
@@ -51,7 +51,7 @@
         "time": "18:00",
         "type": "balade",
         "description": "Bergopré. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.jpg"
+        "image": "assets/images/collectif-main.webp"
     },
     {
         "id": 7,
@@ -60,7 +60,7 @@
         "time": "10:00",
         "type": "balade",
         "description": "Cimetière Militaire. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.jpg"
+        "image": "assets/images/collectif-main.webp"
     },
     {
         "id": 8,
@@ -69,7 +69,7 @@
         "time": "10:30",
         "type": "cours",
         "description": "Lieu à définir. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.jpg"
+        "image": "assets/images/collectif-side.webp"
     },
     {
         "id": 9,
@@ -78,7 +78,7 @@
         "time": "14:30",
         "type": "balade",
         "description": "Entrée du village. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.jpg"
+        "image": "assets/images/collectif-main.webp"
     },
     {
         "id": 10,
@@ -87,6 +87,6 @@
         "time": "10:30",
         "type": "cours",
         "description": "Parking Supermarché Match. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.jpg"
+        "image": "assets/images/collectif-side.webp"
     }
 ]
