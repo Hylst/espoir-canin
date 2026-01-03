@@ -1,3 +1,33 @@
+# ===========================================
+# ESPOIR CANIN - robots.txt
+# ===========================================
+# 
+# Ce fichier indique aux moteurs de recherche
+# (Google, Bing, etc.) comment indexer le site.
+#
+# Site : https://espoir-canin.fr/
+# Contact : espoir.canin@outlook.fr
+#
+# ===========================================
+
+# Autoriser tous les robots à indexer le site
 User-agent: *
 Allow: /
+
+# Empêcher l'indexation des fichiers techniques
+Disallow: /assets/php/
+Disallow: /send_mail.php
+
+# Emplacement du sitemap pour faciliter l'indexation
 Sitemap: https://espoir-canin.fr/sitemap.xml
+
+# ===========================================
+# Note pour les développeurs :
+# 
+# Pour tester ce fichier, utilisez :
+# - Google Search Console (Inspecteur d'URL)
+# - Bing Webmaster Tools
+#
+# Pour vérifier le sitemap :
+# - https://www.xml-sitemaps.com/validate-xml-sitemap.html
+# ===========================================

@@ -2,51 +2,121 @@
 <html lang="fr">
 
 <head>
+    <!-- ============================================
+         ESPOIR CANIN - Page d'Accueil
+         Site officiel : https://espoir-canin.fr/
+         
+         Éducateur canin à Natzwiller (67130) en Alsace
+         Contact : David Koessler - espoir.canin@outlook.fr
+         
+         Conception : Geoffroy Streit
+         Dernière mise à jour : Janvier 2025
+    ============================================= -->
+
+    <!-- Encodage et viewport pour mobile -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espoir Canin - Éducation, Rééducation et Balades Collectives en Alsace</title>
+
+    <!-- ===========================================
+         SEO - Balises essentielles
+         Ces balises sont cruciales pour le référencement
+         Google et l'affichage dans les résultats de recherche
+    ============================================ -->
+    <title>Espoir Canin - Éducation Canine Positive à Natzwiller | Alsace 67</title>
     <meta name="description"
-        content="Éducation canine, rééducation, pension et balades collectives en Alsace (Schirmeck, Wisches). Méthodes positives et bienveillantes.">
+        content="Éducateur canin professionnel à Natzwiller (67130) en Alsace. Éducation, rééducation comportementale, pension familiale, balades collectives et mantrailing. Méthodes positives et bienveillantes. Devis gratuit.">
     <meta name="keywords"
-        content="éducation canine, rééducation chien, pension canine, Alsace, Schirmeck, Natzwiller, balades collectives, mantrailing, éducateur canin">
+        content="éducateur canin Alsace, éducation canine Natzwiller, rééducation chien 67, pension canine familiale Schirmeck, balades collectives chiens, mantrailing Alsace, cours collectifs chiens, David Koessler, Espoir Canin">
     <meta name="author" content="Espoir Canin - David Koessler">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- URL canonique - très important pour éviter le duplicate content -->
     <link rel="canonical" href="https://espoir-canin.fr/">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Géolocalisation pour le SEO local -->
+    <meta name="geo.region" content="FR-67">
+    <meta name="geo.placename" content="Natzwiller">
+    <meta name="geo.position" content="48.4419;7.2361">
+    <meta name="ICBM" content="48.4419, 7.2361">
+
+    <!-- ===========================================
+         FAVICONS
+         Différentes tailles pour différents appareils
+         Le favicon aide à la reconnaissance de marque
+    ============================================ -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Thème de la barre de navigation sur mobile -->
+    <meta name="theme-color" content="#59d600">
+    <meta name="msapplication-TileColor" content="#59d600">
+
+    <!-- ===========================================
+         OPEN GRAPH - Facebook, LinkedIn, etc.
+         
+         Ces balises contrôlent l'aperçu quand on partage
+         le lien sur les réseaux sociaux.
+         
+         IMPORTANT : Si le partage Facebook ne fonctionne pas
+         correctement, utilisez le Facebook Debugger :
+         https://developers.facebook.com/tools/debug/
+         pour invalider le cache et forcer le rechargement.
+    ============================================ -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://espoir-canin.fr/">
     <meta property="og:title" content="Espoir Canin - Éducation Canine Positive en Alsace">
     <meta property="og:description"
-        content="Éducation, rééducation canine et pension familiale en Alsace. Méthodes positives et bienveillantes.">
+        content="Éducateur canin à Natzwiller (67). Éducation, rééducation, pension familiale et balades collectives. Méthodes positives et bienveillantes.">
     <meta property="og:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
+    <meta property="og:image:secure_url" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Espoir Canin - Éducation canine positive avec un Golden Retriever en forêt">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Espoir Canin">
 
-    <!-- Twitter -->
+    <!-- ===========================================
+         TWITTER CARDS
+         Pour un bel affichage sur Twitter/X
+    ============================================ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Espoir Canin - Éducation Canine Positive en Alsace">
     <meta name="twitter:description"
-        content="Éducation, rééducation canine et pension familiale en Alsace. Méthodes positives et bienveillantes.">
+        content="Éducateur canin à Natzwiller (67). Éducation, rééducation, pension familiale et balades collectives. Méthodes positives.">
     <meta name="twitter:image" content="https://espoir-canin.fr/assets/images/hero-home-ai.jpg">
+    <meta name="twitter:image:alt" content="Espoir Canin - Éducation canine positive avec un Golden Retriever">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- ===========================================
+         DONNÉES STRUCTURÉES JSON-LD
+         
+         Ces données aident Google à comprendre que c'est
+         une entreprise locale avec ses horaires, adresse,
+         services, etc. Cela améliore l'affichage dans
+         les résultats de recherche (rich snippets).
+    ============================================ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://espoir-canin.fr/#business",
         "name": "Espoir Canin",
-        "image": "https://espoir-canin.fr/assets/images/logo-titre-espoir-canin.png",
-        "description": "Éducation canine, rééducation, pension et balades collectives en Alsace. Méthodes positives et bienveillantes.",
-        "@id": "https://espoir-canin.fr/",
+        "alternateName": "Espoir Canin - David Koessler",
+        "image": [
+            "https://espoir-canin.fr/assets/images/logo-titre-espoir-canin.png",
+            "https://espoir-canin.fr/assets/images/hero-home-ai.jpg"
+        ],
+        "description": "Éducateur canin professionnel en Alsace. Services d'éducation canine, rééducation comportementale, pension familiale, balades collectives et mantrailing. Méthodes positives et bienveillantes.",
         "url": "https://espoir-canin.fr/",
         "telephone": "+33676022586",
         "email": "espoir.canin@outlook.fr",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "",
+            "streetAddress": "2A Route de Rothau",
             "addressLocality": "Natzwiller",
             "postalCode": "67130",
+            "addressRegion": "Grand Est",
             "addressCountry": "FR"
         },
         "geo": {
@@ -81,6 +151,8 @@
             }
         ],
         "priceRange": "€€",
+        "paymentAccepted": "Cash, Check",
+        "currenciesAccepted": "EUR",
         "areaServed": {
             "@type": "GeoCircle",
             "geoMidpoint": {
@@ -92,39 +164,90 @@
         },
         "sameAs": [
             "https://www.facebook.com/profile.php?id=100012540031415"
-        ]
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services d'éducation canine",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Éducation canine",
+                        "description": "Cours d'éducation pour chiots et chiens adultes"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Rééducation comportementale",
+                        "description": "Travail sur les problèmes de comportement"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Pension canine familiale",
+                        "description": "Garde de votre chien à domicile"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Mantrailing",
+                        "description": "Activité de pistage ludique"
+                    }
+                }
+            ]
+        }
     }
     </script>
 
-    <!-- Fonts -->
+    <!-- ===========================================
+         POLICES GOOGLE FONTS
+         On utilise Inter pour le texte et Outfit pour les titres
+         Le preconnect améliore les performances de chargement
+    ============================================ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- Feuille de styles principale -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-
-    <!-- Navigation -->
+    <!-- ===========================================
+         HEADER - Navigation principale
+         
+         Le header est fixe en haut de page avec un effet
+         de transparence (backdrop-filter blur).
+         Sur mobile, le menu devient un hamburger.
+    ============================================ -->
     <header class="site-header">
         <div class="container header-inner">
+            <!-- Logo cliquable vers l'accueil -->
             <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/logo-titre-espoir-canin.png" alt="Espoir Canin Logo">
+                <a href="index.html" title="Accueil Espoir Canin">
+                    <img src="assets/images/logo-titre-espoir-canin.png"
+                        alt="Logo Espoir Canin - Éducateur canin en Alsace" width="200" height="60">
                 </a>
             </div>
 
-            <button class="mobile-toggle" aria-label="Menu">
+            <!-- Bouton hamburger pour mobile -->
+            <button class="mobile-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
                 ☰
             </button>
 
-            <nav class="main-nav">
+            <!-- Navigation principale -->
+            <nav class="main-nav" aria-label="Navigation principale">
                 <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="index.html" class="active" aria-current="page">Accueil</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="pension.html">Pension</a></li>
                     <li><a href="planning.html">Planning</a></li>
@@ -136,25 +259,44 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- ===========================================
+         CONTENU PRINCIPAL
+         Tout le contenu visible de la page
+    ============================================ -->
     <main>
-        <!-- Hero Section -->
+        <!-- ===========================================
+             SECTION HERO
+             Grande image d'accroche avec le titre principal
+             et les boutons d'action (CTA).
+        ============================================ -->
         <section class="hero"
-            style="min-height: 80vh; display: flex; align-items: center; position: relative; background: url('assets/images/hero-home-ai.jpg') center/cover no-repeat; margin-top: 80px;">
+            style="min-height: 80vh; display: flex; align-items: center; position: relative; background: url('assets/images/hero-home-ai.jpg') center/cover no-repeat; margin-top: 80px;"
+            aria-label="Présentation Espoir Canin">
+
+            <!-- Overlay sombre pour améliorer la lisibilité du texte -->
             <div class="overlay"
-                style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2));">
+                style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2));"
+                aria-hidden="true">
             </div>
+
             <div class="container" style="position: relative; z-index: 2;">
-                <h1 style="font-size: 3.5rem; margin-bottom: 20px; max-width: 800px;">Éducation & Rééducation Canine
+                <!-- Titre principal H1 - un seul par page pour le SEO -->
+                <h1 style="font-size: 3.5rem; margin-bottom: 20px; max-width: 800px;">
+                    Éducation & Rééducation Canine
                 </h1>
+
                 <p
                     style="font-size: 1.6rem; margin-bottom: 10px; max-width: 700px; color: #fff; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
                     Retrouvez l'harmonie avec votre chien. Cours individuels, collectifs et pension en Alsace.
                 </p>
+
+                <!-- Informations de localisation avec emojis pour le visuel -->
                 <p style="font-size: 1.1rem; margin-bottom: 30px; font-weight: 500; color: #fff;">
                     📍 Je suis situé à Natzwiller (67130).<br>
                     🚗 Je peux me déplacer à votre domicile.
                 </p>
+
+                <!-- Boutons d'action principaux (CTA) -->
                 <div class="hero-buttons">
                     <a href="services.html" class="btn btn-primary">Nos Services</a>
                     <a href="planning.html" class="btn btn-outline" style="margin-left: 15px;">Voir le Planning</a>
@@ -162,72 +304,97 @@
             </div>
         </section>
 
-        <!-- Intro Section -->
-        <section class="intro">
+        <!-- ===========================================
+             SECTION INTRODUCTION
+             Présentation d'Espoir Canin avec les horaires
+             et les points forts du service.
+        ============================================ -->
+        <section class="intro" aria-label="Bienvenue chez Espoir Canin">
             <div class="container">
+                <!-- Titre de section avec animation -->
                 <div class="section-title">
                     <h2 class="animated-title">Bienvenue chez Espoir Canin</h2>
-                    <div class="divider"></div>
+                    <div class="divider" aria-hidden="true"></div>
                 </div>
 
                 <div style="text-align: center; max-width: 900px; margin: 0 auto; font-size: 1.1rem;">
+                    <!-- Résumé des services proposés -->
                     <p style="margin-bottom: 30px; font-weight: 500;">
                         Éducation/Rééducation Canine – Pension – Mantrailing – Cours/Balade Collective – Formation chien
                         Catégorie – Alimentation
                     </p>
 
+                    <!-- Carte des horaires d'ouverture -->
                     <div class="info-card hover-scale"
                         style="background: var(--color-surface); padding: 30px; border-radius: 15px; margin-bottom: 40px; box-shadow: var(--shadow-card);">
                         <h3 style="color: var(--color-primary); margin-bottom: 15px;">Horaires d'ouverture</h3>
                         <p><strong>Lundi au Vendredi :</strong> 9h - 19h (Jeudi jusqu'à 18h)</p>
                         <p><strong>Samedi :</strong> 9h - 17h</p>
                         <p><strong>Dimanche et Jours Fériés :</strong> 10h - 12h</p>
-                        <p style="margin-top: 10px; font-size: 0.9em; color: var(--color-text-muted);"><em>Pension : Sur
-                                RDV uniquement</em></p>
+                        <p style="margin-top: 10px; font-size: 0.9em; color: var(--color-text-muted);">
+                            <em>Pension : Sur RDV uniquement</em>
+                        </p>
                     </div>
 
+                    <!-- Grille avec objectifs et image -->
                     <div class="intro-grid">
+                        <!-- Colonne de gauche : Nos objectifs -->
                         <div class="info-card hover-scale"
                             style="background: var(--color-surface); padding: 25px; border-radius: 15px;">
                             <h3 style="margin-bottom: 20px;">Notre Objectif</h3>
                             <p style="margin-bottom: 20px;">
-                                L’objectif d’Espoir canin est de vous accompagner et de vous guider dans l’éducation de
-                                votre compagnon, qu’il soit chiot, adulte, ou qu’il ait besoin de rééducation.
+                                L'objectif d'Espoir canin est de vous accompagner et de vous guider dans l'éducation de
+                                votre compagnon, qu'il soit chiot, adulte, ou qu'il ait besoin de rééducation.
                             </p>
+
+                            <!-- Liste des avantages avec icônes -->
                             <ul style="list-style-type: none;">
                                 <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--color-primary);">✔</span> En
-                                    travaillant sur le comportement et l’éducation
+                                    <span style="position: absolute; left: 0; color: var(--color-primary);"
+                                        aria-hidden="true">✔</span>
+                                    En travaillant sur le comportement et l'éducation
                                 </li>
                                 <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--color-primary);">✔</span> En
-                                    adaptant le travail à la sensibilité de votre chien
+                                    <span style="position: absolute; left: 0; color: var(--color-primary);"
+                                        aria-hidden="true">✔</span>
+                                    En adaptant le travail à la sensibilité de votre chien
                                 </li>
                                 <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--color-primary);">✔</span> Des
-                                    prestations collectives pour la socialisation
+                                    <span style="position: absolute; left: 0; color: var(--color-primary);"
+                                        aria-hidden="true">✔</span>
+                                    Des prestations collectives pour la socialisation
                                 </li>
                                 <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--color-primary);">✔</span>
+                                    <span style="position: absolute; left: 0; color: var(--color-primary);"
+                                        aria-hidden="true">✔</span>
                                     Activités ludiques comme le Mantrailing
                                 </li>
                             </ul>
                         </div>
+
+                        <!-- Colonne de droite : Image des cours collectifs -->
                         <div class="intro-image" style="position: relative;">
-                            <img src="assets/images/collectif-main.jpg" alt="Cours Collectifs" class="hover-zoom"
-                                style="width: 100%; border-radius: 10px; box-shadow: var(--shadow-card);">
+                            <img src="assets/images/collectif-main.jpg"
+                                alt="Cours collectifs d'éducation canine avec plusieurs chiens en forêt"
+                                class="hover-zoom"
+                                style="width: 100%; border-radius: 10px; box-shadow: var(--shadow-card);"
+                                loading="lazy">
                         </div>
                     </div>
-                    <!-- Second row: 2 images side by side -->
+
+                    <!-- Deuxième rangée : 2 images côte à côte -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
                         <div style="position: relative;">
-                            <img src="assets/images/home-illustration-new.jpg" alt="Chien Espoir Canin"
-                                class="hover-zoom"
-                                style="width: 100%; border-radius: 10px; box-shadow: var(--shadow-card);">
+                            <img src="assets/images/home-illustration-new.jpg"
+                                alt="Chien heureux avec son maître lors d'une séance d'éducation" class="hover-zoom"
+                                style="width: 100%; border-radius: 10px; box-shadow: var(--shadow-card);"
+                                loading="lazy">
                         </div>
                         <div style="position: relative;">
-                            <img src="assets/images/collectif-side.jpg" alt="Activités Canines" class="hover-zoom"
-                                style="width: 100%; border-radius: 10px; box-shadow: var(--shadow-card);">
+                            <img src="assets/images/collectif-side.jpg"
+                                alt="Activités canines en groupe - socialisation et jeux" class="hover-zoom"
+                                style="width: 100%; border-radius: 10px; box-shadow: var(--shadow-card);"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -236,52 +403,79 @@
 
     </main>
 
-    <!-- Footer -->
+    <!-- ===========================================
+         FOOTER
+         Pied de page avec informations de contact,
+         liens utiles et réseaux sociaux.
+    ============================================ -->
     <footer>
         <div class="container">
             <div class="footer-grid">
+                <!-- Colonne 1 : Logo et description -->
                 <div class="footer-col" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <img src="assets/images/logo_footer.png" alt="Espoir Canin Logo"
-                        style="max-width: 150px; margin-bottom: 15px;">
+                    <img src="assets/images/logo_footer.png" alt="Logo Espoir Canin"
+                        style="max-width: 150px; margin-bottom: 15px;" loading="lazy">
                     <h3>Espoir Canin</h3>
                     <p>Éducation et Rééducation canine en Alsace.</p>
+
+                    <!-- Liens vers les réseaux sociaux -->
                     <div class="social-links">
-                        <!-- Add icons later -->
-                        <a href="#">F</a>
-                        <a href="#">I</a>
+                        <a href="https://www.facebook.com/profile.php?id=100012540031415" target="_blank"
+                            rel="noopener noreferrer" title="Suivez Espoir Canin sur Facebook"
+                            aria-label="Page Facebook Espoir Canin">
+                            F
+                        </a>
                     </div>
                 </div>
+
+                <!-- Colonne 2 : Coordonnées -->
                 <div class="footer-col">
                     <h3>Contact</h3>
                     <ul style="opacity: 0.8;">
-                        <li>67130 NATZWILLER</li>
-                        <li>06.76.02.25.86</li>
-                        <li>espoir.canin@outlook.fr</li>
+                        <li>📍 67130 NATZWILLER</li>
+                        <li>📞 <a href="tel:+33676022586" style="color: inherit;">06.76.02.25.86</a></li>
+                        <li>✉️ <a href="mailto:espoir.canin@outlook.fr"
+                                style="color: inherit;">espoir.canin@outlook.fr</a></li>
                     </ul>
                 </div>
+
+                <!-- Colonne 3 : Liens utiles -->
                 <div class="footer-col">
                     <h3>Liens Utiles</h3>
                     <ul>
-                        <li><span style="color: var(--color-text-muted); cursor: default;">Conseils & Vision</span>
+                        <li>
+                            <a href="conseils.html" style="color: var(--color-text-muted);">Conseils & Vision</a>
                         </li>
-                        <li><a href="mentions-legales.html" style="color: var(--color-text-muted);">Mentions Légales</a>
+                        <li>
+                            <a href="mentions-legales.html" style="color: var(--color-text-muted);">Mentions Légales</a>
                         </li>
-                        <li><a href="cgv.html" style="color: var(--color-text-muted);">Conditions Générales de Vente</a>
+                        <li>
+                            <a href="cgv.html" style="color: var(--color-text-muted);">Conditions Générales de Vente</a>
                         </li>
-                        <li><a href="assets/docs/cgv.odt" style="color: var(--color-text-muted);">CGV (Télécharger)</a>
+                        <li>
+                            <a href="assets/docs/cgv.odt" style="color: var(--color-text-muted);" download>CGV
+                                (Télécharger)</a>
                         </li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Copyright et crédits -->
             <div class="footer-bottom">
-                &copy; 2025 Espoir Canin. Conception : <a href="https://www.linkedin.com/in/geoffroy-streit/"
-                    target="_blank" style="color: var(--color-text-muted); text-decoration: underline;">Geoffroy
-                    Streit</a>
+                &copy; 2025 Espoir Canin. Conception :
+                <a href="https://www.linkedin.com/in/geoffroy-streit/" target="_blank" rel="noopener noreferrer"
+                    style="color: var(--color-text-muted); text-decoration: underline;">
+                    Geoffroy Streit
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ===========================================
+         SCRIPTS
+         Le JavaScript est chargé en fin de page pour
+         ne pas bloquer le rendu du contenu.
+    ============================================ -->
     <script src="assets/js/main.js"></script>
 </body>
 

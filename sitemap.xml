@@ -1,53 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--
+    ===========================================
+    ESPOIR CANIN - Sitemap XML
+    ===========================================
+    
+    Ce fichier aide les moteurs de recherche à découvrir
+    et indexer toutes les pages du site.
+    
+    URL : https://espoir-canin.fr/sitemap.xml
+    Dernière mise à jour : 2025-01-03
+    
+    Priority :
+    - 1.0 : Page d'accueil
+    - 0.8 : Pages principales
+    - 0.6-0.7 : Pages secondaires
+    - 0.3-0.4 : Pages légales (noindex recommandé)
+    
+    ===========================================
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Page d'accueil - Priorité maximale -->
   <url>
     <loc>https://espoir-canin.fr/</loc>
-    <lastmod>2025-12-14</lastmod>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://espoir-canin.fr/assets/images/hero-home-ai.jpg</image:loc>
+      <image:title>Espoir Canin - Éducation canine en Alsace</image:title>
+    </image:image>
   </url>
+  
+  <!-- Services d'éducation canine -->
   <url>
     <loc>https://espoir-canin.fr/services.html</loc>
-    <lastmod>2025-12-14</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://espoir-canin.fr/assets/images/service-educ.jpg</image:loc>
+      <image:title>Services d'éducation canine Espoir Canin</image:title>
+    </image:image>
   </url>
+  
+  <!-- Pension canine -->
   <url>
     <loc>https://espoir-canin.fr/pension.html</loc>
-    <lastmod>2025-12-14</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://espoir-canin.fr/assets/images/pension-famille.jpg</image:loc>
+      <image:title>Pension canine familiale en Alsace</image:title>
+    </image:image>
   </url>
+  
+  <!-- Planning des événements -->
   <url>
     <loc>https://espoir-canin.fr/planning.html</loc>
-    <lastmod>2025-12-14</lastmod>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Tarifs -->
   <url>
     <loc>https://espoir-canin.fr/tarifs.html</loc>
-    <lastmod>2025-12-14</lastmod>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Croquettes et alimentation -->
   <url>
     <loc>https://espoir-canin.fr/croquettes.html</loc>
-    <lastmod>2025-12-14</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://espoir-canin.fr/assets/images/croquettes-new.jpg</image:loc>
+      <image:title>Croquettes Origin's pour chiens</image:title>
+    </image:image>
   </url>
+  
+  <!-- Page de contact -->
   <url>
     <loc>https://espoir-canin.fr/contact.html</loc>
-    <lastmod>2025-12-14</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+  
+  <!-- Conseils canins -->
   <url>
     <loc>https://espoir-canin.fr/conseils.html</loc>
-    <lastmod>2025-12-14</lastmod>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  
+  <!-- Pages légales (priorité basse) -->
   <url>
     <loc>https://espoir-canin.fr/cgv.html</loc>
-    <lastmod>2025-12-14</lastmod>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://espoir-canin.fr/mentions-legales.html</loc>
-    <lastmod>2025-12-14</lastmod>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  
+  <url>
+    <loc>https://espoir-canin.fr/mentions-legales.html</loc>
+    <lastmod>2025-01-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
 </urlset>
