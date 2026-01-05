@@ -36,10 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = strip_tags(trim($_POST["phone"]));
     $message = trim($_POST["message"]);
 
-    // Vérification des champs obligatoires
     if (empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400); // Bad Request
-        echo "Merci de remplir tous les champs correctement.";
+        echo json_encode(["errors" => [["message" => "Merci de remplir tous les champs correctement."]]]);
         exit;
     }
 
@@ -101,16 +100,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         
         http_response_code(200); // OK
-        echo "Merci ! Votre message a bien été envoyé.";
+        echo json_encode(["success" => true, "message" => "Merci ! Votre message a bien été envoyé."]);
         
     } catch (Exception $e) {
         // En cas d'erreur technique
         http_response_code(500); // Internal Server Error
-        echo "Oups ! Une erreur s'est produite lors de l'envoi. Erreur Mailer: {$mail->ErrorInfo}";
+        echo json_encode(["errors" => [["message" => "Oups ! Une erreur s'est produite lors de l'envoi. Erreur Mailer: {$mail->ErrorInfo}"]]]);
     }
 } else {
     // Si quelqu'un essaie d'accéder au fichier directement sans POST
     http_response_code(403); // Forbidden
-    echo "Il y a eu un problème avec votre soumission, veuillez réessayer.";
+    echo json_encode(["errors" => [["message" => "Il y a eu un problème avec votre soumission, veuillez réessayer."]]]);
 }
 ?>

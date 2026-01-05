@@ -226,8 +226,8 @@
                     <div>
                         <div class="contact-info-card">
                             <h2 style="margin-bottom: 30px;">Envoyer un message</h2>
-                            <!-- REMPLACEZ 'VOTRE_ID_FORMSPREE' CI-DESSOUS PAR VOTRE ID FORMSPREE (ex: https://formspree.io/f/xvnggbr) -->
-                            <form action="https://formspree.io/f/xvzpoaoa" method="POST" id="contact-form">
+                            <!-- Formulaire de contact via Vercel API Route -->
+                            <form action="/api/contact" method="POST" id="contact-form">
                                 <div class="form-group">
                                     <label for="name">Nom / Prénom</label>
                                     <input type="text" id="name" name="name" class="form-control" required>
@@ -251,7 +251,19 @@
                                 </p>
                             </form>
 
+
                             <script>
+                                // Pré-remplissage du formulaire via URL parameters
+                                document.addEventListener('DOMContentLoaded', () => {
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    const messageParam = urlParams.get('message');
+                                    /* const subjectParam = urlParams.get('subject'); // Pas de champ sujet visible, on pourrait l'ajouter si besoin */
+
+                                    if (messageParam) {
+                                        document.getElementById('message').value = messageParam;
+                                    }
+                                });
+
                                 var form = document.getElementById("contact-form");
 
                                 async function handleSubmit(event) {
@@ -262,8 +274,10 @@
                                         method: form.method,
                                         body: data,
                                         headers: {
+                                            'Content-Type': 'application/json',
                                             'Accept': 'application/json'
-                                        }
+                                        },
+                                        body: JSON.stringify(Object.fromEntries(data))
                                     }).then(response => {
                                         if (response.ok) {
                                             status.innerHTML = "✅ Message envoyé avec succès !";
