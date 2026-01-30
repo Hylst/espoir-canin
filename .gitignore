@@ -12,3 +12,4 @@ admin/config.php
 GUIDE_MIGRATION_LWS.md
 GUIDE_GESTION_PLANNING.md
 admin/auth.php
+send_mail.php

@@ -11,9 +11,12 @@ require 'assets/php/PHPMailer/Exception.php';
 require 'assets/php/PHPMailer/PHPMailer.php';
 require 'assets/php/PHPMailer/SMTP.php';
 
+// Headers pour éviter certaines erreurs CORS/403 (au cas où)
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // Nettoyage des données
     $name = strip_tags(trim($_POST["name"] ?? ""));
     $email = filter_var(trim($_POST["email"] ?? ""), FILTER_SANITIZE_EMAIL);
     $phone = strip_tags(trim($_POST["phone"] ?? ""));
@@ -27,56 +30,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $mail = new PHPMailer(true);
     $sent = false;
+    $errorLog = "";
 
-    // --- TENTATIVE 1 : SMTP LWS (Prioritaire) ---
+    // --- TENTATIVE 1 : SMTP LWS (Compte 'contact') ---
     try {
         $mail->isSMTP();
-        $mail->Host       = 'mail.espoir-canin.fr';
+        $mail->Host       = 'mail.espoir-canin.fr'; 
         $mail->SMTPAuth   = true;
-        // Utilisation de l'adresse mail_php de LWS (configurée pour le site)
-        $mail->Username   = 'mail_php@espoir-canin.fr';
-        $mail->Password   = 'votre_mot_de_passe_lws'; // À REMPLIR PAR L'UTILISATEUR
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        
+        // CONFIGURATION LWS
+        // Assurez-vous que ce compte est "ACTIF" dans votre panel LWS (pas "Désactivé" ou "Restreint")
+        $mail->Username   = 'contact@espoir-canin.fr'; 
+        $mail->Password   = 'BicEtBouc2026*'; 
+        
+        // Port 465 avec SSL est souvent plus fiable chez LWS
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
+        $mail->Port       = 465;
+        
         $mail->CharSet    = 'UTF-8';
-        $mail->Timeout    = 10; // Timeout court pour le fallback
+        $mail->Timeout    = 10;
 
-        $mail->setFrom('mail_php@espoir-canin.fr', 'Site Espoir Canin');
+        $mail->setFrom('contact@espoir-canin.fr', 'Site Espoir Canin');
         $mail->addAddress('espoir.canin@outlook.fr');
         $mail->addReplyTo($email, $name);
 
         $mail->isHTML(true);
-        $mail->Subject = "🐶 (LWS) Nouveau message de $name";
+        $mail->Subject = "🐶 Nouveau contact de $name";
         $mail->Body    = "<h2>Message de $name</h2><p><strong>Email :</strong> $email</p><p><strong>Tél :</strong> $phone</p><hr><p>".nl2br(htmlspecialchars($message))."</p>";
         $mail->AltBody = "Nom: $name\nEmail: $email\nMessage: $message";
 
         $mail->send();
         $sent = true;
     } catch (Exception $e) {
-        // Échec LWS, on tente Gmail
+        $errorLog .= "LWS Error: " . $mail->ErrorInfo . "; ";
         $sent = false;
     }
 
     // --- TENTATIVE 2 : SMTP GMAIL (Fallback) ---
+    // Les identifiants Google sont ICI ↓
     if (!$sent) {
         try {
             $mail->clearAddresses();
             $mail->clearReplyTos();
             
             $mail->Host       = 'smtp.gmail.com';
-            $mail->Username   = 'espoir.canin.67@gmail.com';
-            $mail->Password   = 'Ytpy segm mxsz cddk'; // Mot de passe d'application Gmail
+            $mail->Username   = 'espoir.canin.67@gmail.com'; // Votre adresse Gmail
+            $mail->Password   = 'Ytpy segm mxsz cddk';       // Mot de passe d'application Google (Clé App)
             
-            $mail->setFrom('espoir.canin.67@gmail.com', 'Site Espoir Canin');
+            $mail->setFrom('espoir.canin.67@gmail.com', 'Site Espoir Canin (Backup)');
             $mail->addAddress('espoir.canin@outlook.fr');
             $mail->addReplyTo($email, $name);
             
-            $mail->Subject = "🐶 (Gmail) Nouveau message de $name";
+            $mail->Subject = "🐶 (Gmail Backup) Nouveau message de $name";
+            $mail->Body    = "<h2>Message de $name</h2><p><strong>Email :</strong> $email</p><p><strong>Tél :</strong> $phone</p><hr><p>".nl2br(htmlspecialchars($message))."</p>";
+            
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+            
             $mail->send();
             $sent = true;
         } catch (Exception $e) {
+            $errorLog .= "Gmail Error: " . $mail->ErrorInfo;
             http_response_code(500);
-            echo json_encode(["errors" => [["message" => "Oups ! L'envoi a échoué. ({$mail->ErrorInfo})"]]]);
+            echo json_encode(["errors" => [["message" => "Échec envoi ($errorLog)"]]]);
             exit;
         }
     }
