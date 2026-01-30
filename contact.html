@@ -274,10 +274,8 @@
                                         method: form.method,
                                         body: data,
                                         headers: {
-                                            'Content-Type': 'application/json',
                                             'Accept': 'application/json'
-                                        },
-                                        body: JSON.stringify(Object.fromEntries(data))
+                                        }
                                     }).then(response => {
                                         if (response.ok) {
                                             status.innerHTML = "✅ Message envoyé avec succès !";
