@@ -226,8 +226,8 @@
                     <div>
                         <div class="contact-info-card">
                             <h2 style="margin-bottom: 30px;">Envoyer un message</h2>
-                            <!-- Formulaire de contact via Vercel API Route -->
-                            <form action="/api/contact" method="POST" id="contact-form">
+                            <!-- Formulaire de contact via script PHP (Migration LWS) -->
+                            <form action="send_mail.php" method="POST" id="contact-form">
                                 <div class="form-group">
                                     <label for="name">Nom / Prénom</label>
                                     <input type="text" id="name" name="name" class="form-control" required>
@@ -339,7 +339,9 @@
                         </li>
                         <li><a href="cgv.html" style="color: var(--color-text-muted);">Conditions Générales de Vente</a>
                         </li>
-                        <li><a href="assets/docs/cgv.odt" style="color: var(--color-text-muted);">CGV (Télécharger)</a>
+                        <li><a href="assets/docs/cgv.odt" style="color: var(--color-text-muted);" target="_blank">CGV
+                                (ODT)</a> | <a href="assets/docs/cgv_espir_canin.pdf"
+                                style="color: var(--color-text-muted);" target="_blank">CGV (PDF)</a>
                         </li>
                     </ul>
                 </div>
