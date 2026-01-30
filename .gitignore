@@ -1,0 +1,14 @@
+node_modules/
+.env
+.DS_Store
+*.log
+
+# User Guides (Tracked by request, but ensuring no sensitive temp files)
+# ...
+
+# Admin simple protection (if we had .htaccess in ignore, but we want it)
+admin/config.php
+
+GUIDE_MIGRATION_LWS.md
+GUIDE_GESTION_PLANNING.md
+admin/auth.php

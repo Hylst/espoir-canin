@@ -1,59 +1,5 @@
 [
     {
-        "id": 1,
-        "title": "Cours Collectif - Schirmeck",
-        "date": "2025-12-23",
-        "time": "18:00",
-        "type": "cours",
-        "description": "Le Bergopré. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.webp"
-    },
-    {
-        "id": 2,
-        "title": "Balade Collective - Schirmeck",
-        "date": "2026-01-10",
-        "time": "10:30",
-        "type": "balade",
-        "description": "Bergopré. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.webp"
-    },
-    {
-        "id": 3,
-        "title": "Demi-Journée Éducative - Schirmeck",
-        "date": "2026-01-10",
-        "time": "14:00",
-        "type": "cours",
-        "description": "Bergopré. 14h à 16h30. 50€. Place valide lors de la réception du paiement.",
-        "image": "assets/images/collectif-side.webp"
-    },
-    {
-        "id": 4,
-        "title": "Cours Collectif - Schirmeck",
-        "date": "2026-01-11",
-        "time": "10:30",
-        "type": "cours",
-        "description": "Le Bergopré. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.webp"
-    },
-    {
-        "id": 5,
-        "title": "Cours Collectif - Schirmeck",
-        "date": "2026-01-26",
-        "time": "18:00",
-        "type": "cours",
-        "description": "Le Bergopré. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.webp"
-    },
-    {
-        "id": 6,
-        "title": "Balade Collective - Schirmeck",
-        "date": "2026-01-28",
-        "time": "18:00",
-        "type": "balade",
-        "description": "Bergopré. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.webp"
-    },
-    {
         "id": 7,
         "title": "Balade Collective - Wisches",
         "date": "2026-02-07",
