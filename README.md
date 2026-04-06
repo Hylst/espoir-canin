@@ -94,7 +94,7 @@ EspoirCaninv2/
 
 ### Webmestre
 - **Geoffroy Streit**
-- 📧 Email : geoffry.streit@gmail.com
+- 📧 Email : geoffroy.streit@gmail.com
 - 🔗 LinkedIn : [linkedin.com/in/geoffroy-streit](https://www.linkedin.com/in/geoffroy-streit/)
 
 ---
