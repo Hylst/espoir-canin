@@ -227,7 +227,7 @@
                         <div class="contact-info-card">
                             <h2 style="margin-bottom: 30px;">Envoyer un message</h2>
                             <!-- Formulaire de contact via script PHP (Migration LWS) -->
-                            <form action="send_mail.php" method="POST" id="contact-form">
+                            <form action="contact_process.php" method="POST" id="contact-form">
                                 <div class="form-group">
                                     <label for="name">Nom / Prénom</label>
                                     <input type="text" id="name" name="name" class="form-control" required>
@@ -276,20 +276,22 @@
                                         headers: {
                                             'Accept': 'application/json'
                                         }
-                                    }).then(response => {
+                                    }).then(async response => {
+                                        const isJson = response.headers.get('content-type')?.includes('application/json');
+                                        const data = isJson ? await response.json() : null;
+
                                         if (response.ok) {
                                             status.innerHTML = "✅ Message envoyé avec succès !";
                                             form.reset();
                                         } else {
-                                            response.json().then(data => {
-                                                if (Object.hasOwn(data, 'errors')) {
-                                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                                                } else {
-                                                    status.innerHTML = "❌ Une erreur s'est produite lors de l'envoi.";
-                                                }
-                                            })
+                                            if (data && data.errors) {
+                                                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                                            } else {
+                                                status.innerHTML = "❌ Une erreur s'est produite (Code: " + response.status + ").";
+                                            }
                                         }
                                     }).catch(error => {
+                                        console.error('Fetch error:', error);
                                         status.innerHTML = "❌ Oups ! Impossible d'envoyer le message.";
                                     });
                                 }
