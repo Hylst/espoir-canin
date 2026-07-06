@@ -13,3 +13,4 @@ GUIDE_MIGRATION_LWS.md
 GUIDE_GESTION_PLANNING.md
 admin/auth.php
 contact_process.php
+api/contact.js
