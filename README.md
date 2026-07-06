@@ -11,9 +11,8 @@ Site vitrine professionnel pour **Espoir Canin**, éducation et rééducation ca
 | HTML5 / CSS3 | Structure, styles, variables CSS, animations |
 | JavaScript (vanilla) | Menu mobile, scroll reveal, planning dynamique |
 | PHP 8.x | Admin panel (CRUD événements), formulaire de contact (PHPMailer) |
-| Node.js (Vercel) | Serverless `api/contact.js` (Nodemailer, déploiement Vercel automatique) |
 | Google Fonts | Inter + Outfit |
-| Google Maps | Carte de localisation page contact |
+| Google Maps | Carte de localisation |
 
 ## Pages
 
@@ -23,9 +22,9 @@ Site vitrine professionnel pour **Espoir Canin**, éducation et rééducation ca
 | `services.html` | Éducation, rééducation, chiot |
 | `pension.html` | Pension chenil + familiale |
 | `planning.html` | Calendrier dynamique (filtres par type) |
-| `tarifs.html` | Grille tarifaire |
+| `tarifs.html` | Grille tarifaire 2026 |
 | `croquettes.html` | Vente alimentation Origin's |
-| `contact.html` | Formulaire + carte Maps |
+| `contact.html` | Formulaire PHP/PHPMailer + carte Maps |
 | `conseils.html` | Conseils canins (en cours) |
 | `cgv.html` | Conditions générales de vente |
 | `mentions-legales.html` | Mentions légales |
@@ -33,19 +32,24 @@ Site vitrine professionnel pour **Espoir Canin**, éducation et rééducation ca
 ## Développement local
 
 ```bash
-# Serveur HTTP simple (HTML/CSS/JS seulement)
-# Les pages PHP admin + contact nécessitent un serveur avec PHP
 php -S localhost:8000
 ```
 
-Ou avec Live Server (VS Code) pour les pages statiques.
+Ou Live Server (VS Code) pour les pages statiques seules (contact form + admin nécessitent PHP).
 
 ## Déploiement
 
-- **Site statique + PHP** : Hébergement mutualisé LWS (Apache, IP `83.229.19.69`)
-- **Fonction contact** : Serverless Vercel (déploiement automatique depuis GitHub)
-- **Admin panel** : `https://espoir-canin.fr/admin/` (mot de passe dans `admin/auth.php`)
-- **Pas de CI/CD** : Déploiement FTP manuel ou Vercel auto depuis `main`
+- **Hébergement** : LWS mutualisé (Apache, IP `83.229.19.69`)
+- **FTP** : Déploiement manuel dans `public_html/`
+- **Admin** : `https://espoir-canin.fr/admin/` (mot de passe dans `admin/auth.php`, gitignoré)
+- **Pas de CI/CD** : GitHub = synchronisation uniquement
+
+## Déploiement initial / après clonage
+
+1. Copier les fichiers dans `public_html/` via FTP
+2. Copier séparément `admin/auth.php` et `contact_process.php` (gitignorés, contiennent les credentials)
+3. Vérifier les permissions de `assets/events.json` (644 ou 666 pour l'admin panel)
+4. Tester le formulaire de contact et l'admin panel
 
 ## Contact
 

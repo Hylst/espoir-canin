@@ -5,8 +5,9 @@
 Static HTML/CSS/JS website for Espoir Canin (dog training business, Natzwiller, France). No framework, no bundler, no build step — just static files served by Apache on LWS hosting.
 
 - **Production**: https://espoir-canin.fr/
-- **Stack**: HTML5, CSS3, vanilla JS, PHP (admin panel + contact form), Node.js (Vercel serverless)
-- **Contact form**: PHP/PHPMailer (`contact_process.php`, gitignored). A Vercel serverless function (`api/contact.js`) also exists but is NOT wired to the frontend.
+- **Stack**: HTML5, CSS3, vanilla JS, PHP (admin panel + contact form)
+- **Contact form**: PHP/PHPMailer (`contact_process.php`, gitignored). The form submits directly, no AJAX.
+- **Deployment**: FTP manual to LWS shared hosting (IP `83.229.19.69`, user `espoi1265278`). No CI/CD, no auto-deploy, no Vercel.
 
 ## Key Commands
 
@@ -27,8 +28,7 @@ No build/test/lint commands. Static site.
 │   └── events.json                  # Event data for planning page
 ├── admin/                           # PHP admin panel (CRUD events)
 │   └── auth.php                     # Session-based auth (plaintext password, gitignored)
-├── api/
-│   └── contact.js                   # Vercel serverless (Nodemailer, orphan — not called from HTML)
+├── api/                             # Gitignored (Vercel remnant, not deployed)
 ├── .htaccess                        # Apache: HTTPS, gzip, cache, security headers
 ├── features.md                      # Feature list
 └── AGENTS.md                        # This file
@@ -43,15 +43,23 @@ No build/test/lint commands. Static site.
 
 ## Sensitive / Gitignored Files
 
-- `admin/auth.php`, `admin/config.php` — Admin credentials
-- `contact_process.php` — PHPMailer config with SMTP passwords
-- `.env`, `node_modules/`
+These contain credentials and MUST never be committed:
+
+| File | Contains |
+|------|----------|
+| `admin/auth.php` | Admin panel password |
+| `admin/config.php` | Admin config (if any) |
+| `contact_process.php` | PHPMailer SMTP config (LWS + Gmail passwords) |
+| `api/contact.js` | Vercel remnant with email config |
+| `.env`, `node_modules/` | Environment deps |
+
+Credentials are managed locally and deployed to LWS via FTP. Git history has been purged of all past credential leaks (2026-07-07).
 
 ## Deployment
 
-- **Static files + PHP**: LWS shared hosting (Apache). Push to `main` → deploy manually or via FTP.
-- **API (orphan)**: `api/contact.js` deploys automatically to Vercel from GitHub, but frontend doesn't call it.
-- No CI/CD pipeline.
+- **LWS shared hosting** (Apache). Deploy via FTP to `public_html/`.
+- **No CI/CD**. No auto-deploy. GitHub is sync-only.
+- After deploying, verify admin panel (`/admin/`) and contact form submissions work.
 
 ## Conventions
 
@@ -64,9 +72,11 @@ No build/test/lint commands. Static site.
 
 ## Gotchas
 
-- `data/events.json` does NOT exist (removed from git). `assets/events.json` is the single source of truth.
-- `api/contact.js` (Vercel/Nodemailer) has hardcoded Gmail credentials but is NOT called from `contact.html` — the form submits to `contact_process.php` (PHP/PHPMailer). The Vercel function is orphan code.
-- CSS has formatting inconsistencies: some inline comments were moved to separate lines by an auto-formatter (unstaged changes in working tree).
+- `data/events.json` does NOT exist. `assets/events.json` is the single source of truth.
+- `admin/auth.php` must exist on LWS for the admin panel to work — it's gitignored, so FTP it separately.
+- `contact_process.php` must exist on LWS for the contact form to work — also gitignored, FTP separately.
+- CSS has unstaged formatting diffs (comments moved to separate lines by an auto-formatter). Harmless but noisy in `git status`.
 - `.htaccess` blocks `send_mail.php` and dotfiles. JSON/MD files explicitly allowed.
-- `conseils.html` is listed as "en construction" — likely incomplete.
-- `package.json` lists `nodemailer` (for Vercel) and `sharp` (no current usage found).
+- `conseils.html` is "en construction" — incomplete page.
+- `package.json` + `node_modules/` are unused locally (nodemailer/sharp were for the old Vercel function).
+- After credentials are rotated (Gmail app password, LWS SMTP), update both local gitignored files AND re-upload to LWS FTP.
