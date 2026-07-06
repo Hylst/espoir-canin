@@ -86,7 +86,7 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 # -------------------------------------------
 # ERREURS PERSONNALISÉES
 # -------------------------------------------
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
 
 # -------------------------------------------
 # PROTECTION DES FICHIERS SENSIBLES

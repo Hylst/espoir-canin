@@ -6,6 +6,33 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ---
 
+## [2.1.0] - 2026-07-07
+
+### Sécurité
+- **Audit complet des credentials** exposés dans l'historique git
+- **Purge de l'historique** : suppression de tous les mots de passe et app passwords des 38 commits
+- **Mots de passe gitignorés** : `api/`, `contact_process.php`, `admin/auth.php`, `admin/config.php`
+- **node_modules retiré du tracking** : 156 fichiers supprimés du dépôt
+
+### Nettoyage
+- **Suppression des 22 fichiers JPG doublons** : toutes les images sont en WebP uniquement
+- **Meta OG/Twitter** : remplacement des références .jpg par .webp
+- **Dossier `api/`** : supprimé (ancien relicat Vercel, inutilisé)
+- **Diffs cosmétiques CSS/HTML** : nettoyés
+
+### Améliorations
+- **404.html** : page d'erreur personnalisée (remplace la redirection aveugle vers index.html)
+- **CGV** : suppression du lien ODT, PDF uniquement dans les 10 pages HTML
+- **contact_process.php.example** : template sans credentials, prêt à être copié
+
+### Documentation
+- **AGENTS.md** : réécrit (suppression Vercel, clarification contact form, déploiement, gotchas)
+- **README.md** : corrigé (stack réelle, suppression Formspree, instructions FTP)
+- **features.md** : créé (liste exhaustive des fonctionnalités)
+- **STRUCTURE.md** : mis à jour (arborescence réelle, suppression mentions obsolètes)
+
+---
+
 ## [2.0.0] - 2025-01-03
 
 ### 🎉 Refonte complète du site
