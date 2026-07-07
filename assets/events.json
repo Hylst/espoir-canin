@@ -1,38 +1,65 @@
 [
     {
-        "id": 7,
-        "title": "Balade Collective - Wisches",
-        "date": "2026-02-07",
-        "time": "10:00",
-        "type": "balade",
-        "description": "Cimetière Militaire. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.webp"
-    },
-    {
-        "id": 8,
-        "title": "Cours Collectif - Molsheim",
-        "date": "2026-02-08",
+        "id": 35,
+        "title": "Cours Collectif Schirmeck",
+        "date": "2026-07-12",
         "time": "10:30",
         "type": "cours",
-        "description": "Lieu à définir. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.webp"
+        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "image": "assets\/images\/collectif-side.webp"
     },
     {
-        "id": 9,
-        "title": "Balade Collective - Wildersbach",
-        "date": "2026-02-21",
-        "time": "14:30",
-        "type": "balade",
-        "description": "Entrée du village. 15€. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-main.webp"
-    },
-    {
-        "id": 10,
-        "title": "Cours Collectif - Schirmeck",
-        "date": "2026-02-22",
+        "id": 36,
+        "title": "Cours collectif Schirmeck",
+        "date": "2026-07-26",
         "time": "10:30",
         "type": "cours",
-        "description": "Parking Supermarché Match. 15€ par chien. Inscription uniquement par SMS.",
-        "image": "assets/images/collectif-side.webp"
+        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "image": "assets\/images\/collectif-side.webp"
+    },
+    {
+        "id": 37,
+        "title": "Cours collectif Schirmeck",
+        "date": "2026-08-09",
+        "time": "10:30",
+        "type": "cours",
+        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "image": "assets\/images\/collectif-side.webp"
+    },
+    {
+        "id": 38,
+        "title": "Cours collectif Schirmeck",
+        "date": "2026-08-23",
+        "time": "10:30",
+        "type": "cours",
+        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "image": "assets\/images\/collectif-side.webp"
+    },
+    {
+        "id": 39,
+        "title": "Stage sur le Rappel",
+        "date": "2026-09-05",
+        "time": "09:30",
+        "type": "stage",
+        "description": "La Broque - Lieu à définir - 50€ par participants - inscription uniquement par SMS - Pré-paiement obligatoire",
+        "image": "assets\/images\/collectif-side.webp"
+    },
+    {
+        "id": 40,
+        "title": "Cours collectif Schirmeck",
+        "date": "2026-09-06",
+        "time": "10:30",
+        "type": "cours",
+        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "image": "assets\/images\/collectif-side.webp"
+    },
+    {
+        "id": 41,
+        "title": "Cours collectif Schirmeck",
+        "date": "2026-09-06",
+        "time": "10:30",
+        "type": "cours",
+        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "image": "assets\/images\/collectif-side.webp"
     }
 ]

@@ -60,7 +60,7 @@
     <style>
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -71,11 +71,12 @@
             padding: 30px;
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-card);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            overflow: hidden;
         }
 
         .product-card:hover {
@@ -83,17 +84,68 @@
             border-color: var(--color-primary);
         }
 
-        .product-icon {
-            font-size: 2.5rem;
+        .card-img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 12px;
             margin-bottom: 20px;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .card-img {
+            transform: scale(1.04);
+        }
+
+        .product-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
             background: rgba(89, 214, 0, 0.1);
-            width: 80px;
-            height: 80px;
+            width: 64px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .product-card h3 {
+            margin-bottom: 6px;
+        }
+
+        .product-format {
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .product-card > p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tech-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 15px;
+        }
+
+        .tech-specs li {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            padding: 3px 0;
+        }
+
+        .tech-specs strong {
+            color: var(--color-text);
         }
 
         .price-section {
@@ -102,6 +154,12 @@
             border-radius: 16px;
             padding: 40px;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .price-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
         }
 
         .price-tag {
@@ -111,28 +169,10 @@
             margin: 10px 0;
         }
 
-        /* Shake animation on hover */
         @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            10%,
-            30%,
-            50%,
-            70%,
-            90% {
-                transform: translateX(-5px);
-            }
-
-            20%,
-            40%,
-            60%,
-            80% {
-                transform: translateX(5px);
-            }
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
         }
 
         .shake-on-hover:hover {
@@ -143,7 +183,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* Animated text - Wave effect */
         .brand-wave {
             display: inline-block;
             color: var(--color-primary);
@@ -156,25 +195,8 @@
         }
 
         @keyframes wave {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        /* Price section hover */
-        .price-section {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .price-section:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(89, 214, 0, 0.15);
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
     </style>
 </head>
@@ -225,57 +247,66 @@
                     <img src="assets/images/croquettes.webp" alt="Sacs de croquettes Origin's" class="shake-on-hover"
                         style="max-width: 100%; border-radius: 12px; box-shadow: var(--shadow-card); cursor: pointer;">
                     <p style="margin-top: 20px; font-size: 1.1rem; max-width: 800px; text-align: center;">
-                        Espoir Canin a sélectionné pour vous 4 gammes de croquettes <strong>Origin's</strong> pour
+                        Espoir Canin a sélectionné pour vous 3 gammes de croquettes <strong>Origin's</strong> pour
                         répondre aux besoins spécifiques de chaque chien.
                     </p>
                 </div>
 
                 <div class="product-grid">
-                    <!-- Product 1 -->
+
                     <div class="product-card">
-                        <div class="product-icon">🍼</div>
-                        <h3>Start Puppy</h3>
-                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">20 kg</p>
-                        <p>De la gestation jusqu'au passage à l'âge adulte. Adapté à toutes les races.</p>
+                        <img src="assets/images/agneaux-riz-dobermann.webp" alt="Agneau-Riz Dobermann" class="card-img" loading="lazy">
+                        <div class="product-icon">🌾</div>
+                        <h3>Agneau-Riz</h3>
+                        <p class="product-format">15 kg — 90 €</p>
+                        <p>L'agneau-riz (unique source de protéine déshydratée) est adapté à tous les chiens de toutes tailles et races. Idéal pour les animaux ayant des problèmes atopiques, de sensibilité intestinale ou d'intolérance alimentaire.</p>
+                        <ul class="tech-specs">
+                            <li><strong>Forme :</strong> Ronde — 11 à 15 mm</li>
+                            <li><strong>Protéines :</strong> 24 %</li>
+                            <li><strong>Matières grasses :</strong> 12 %</li>
+                        </ul>
                     </div>
 
-                    <!-- Product 2 -->
                     <div class="product-card">
+                        <img src="assets/images/body-fit-berger-australien.webp" alt="Body-Fit Berger Australien" class="card-img" loading="lazy">
                         <div class="product-icon">💪</div>
                         <h3>Body-Fit</h3>
-                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">20 kg</p>
-                        <p>Chiens de travail, molosses, prise de poids/masse. Haute énergie.</p>
+                        <p class="product-format">20 kg — 90 €</p>
+                        <p>Formule haute énergie adaptée aux chiens de sport, chiens nerveux de toutes races et tailles ayant des problèmes de prise de poids, ou aux molosses. Idéal pour la prise de poids et de masse musculaire.</p>
+                        <ul class="tech-specs">
+                            <li><strong>Forme :</strong> Carrée — 14 mm</li>
+                            <li><strong>Protéines :</strong> 26 %</li>
+                            <li><strong>Matières grasses :</strong> 19 %</li>
+                        </ul>
                     </div>
 
-                    <!-- Product 3 -->
                     <div class="product-card">
+                        <img src="assets/images/sensitive-skin-beauceron.webp" alt="Sensitive-Skin Beauceron" class="card-img" loading="lazy">
                         <div class="product-icon">🌿</div>
                         <h3>Sensitive-Skin</h3>
-                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">20 kg</p>
-                        <p>Chiens sensibles, problèmes de peau/pelage, allergies. <strong>Sans blé</strong>.</p>
+                        <p class="product-format">20 kg — 90 €</p>
+                        <p>Formule sans blé élaborée pour les chiens ayant une sensibilité intestinale ou des problèmes de peau/pelage/allergies. Convient à toutes les races et tailles, parfaitement adaptée aux chiens stérilisés.</p>
+                        <ul class="tech-specs">
+                            <li><strong>Forme :</strong> Carrée — 14 mm</li>
+                            <li><strong>Protéines :</strong> 26 %</li>
+                            <li><strong>Matières grasses :</strong> 14 %</li>
+                        </ul>
                     </div>
 
-                    <!-- Product 4 -->
-                    <div class="product-card">
-                        <div class="product-icon">⚖️</div>
-                        <h3>Original</h3>
-                        <p style="color: var(--color-text-muted); margin-bottom: 15px;">18 kg</p>
-                        <p>Maintenance. Pour conserver un poids optimal au quotidien.</p>
-                    </div>
                 </div>
 
                 <div class="price-section">
-                    <h2>Tarifs Unique</h2>
+                    <h2>Tarifs</h2>
                     <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
                         <div>
-                            <p style="margin-bottom: 5px;">Sac de 20 kg</p>
+                            <p style="margin-bottom: 5px;">Sac de 20 kg<br><small>Body-Fit / Sensitive-Skin</small></p>
                             <div class="price-tag">90 €</div>
                         </div>
                         <div>
-                            <p style="margin-bottom: 5px;">Sac de 18 kg</p>
-                            <div class="price-tag">80 €</div>
+                            <p style="margin-bottom: 5px;">Sac de 15 kg<br><small>Agneau-Riz</small></p>
+                            <div class="price-tag">90 €</div>
                         </div>
-                    </div>
+                        </div>
                     <p style="margin-top: 20px; color: var(--color-text-muted);">
                         🚚 Livraison possible (en supplément).
                     </p>
