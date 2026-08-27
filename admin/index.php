@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'time' => $_POST['time'],
                 'type' => $_POST['type'],
                 'description' => $_POST['description'],
-                'image' => $_POST['type'] === 'balade' ? 'assets/images/collectif-main.webp' : 'assets/images/collectif-side.webp' // Auto select image based on type for simplicity
+                'image' => 'assets/images/collectif-side.webp' // Default image
             ];
             
             // Sort by date
@@ -144,12 +144,11 @@ $events = json_decode(file_get_contents($eventsFile), true) ?? [];
                 <div class="form-grid">
                     <div>
                         <label>Titre de l'événement</label>
-                        <input type="text" name="title" placeholder="Ex: Balade Collective - Schirmeck" required>
+                        <input type="text" name="title" placeholder="Ex: Cours Collectif - Schirmeck" required>
                     </div>
                     <div>
                         <label>Type</label>
                         <select name="type">
-                            <option value="balade">Balade</option>
                             <option value="cours">Cours Collectif</option>
                             <option value="mantrailing">Mantrailing</option>
                             <option value="stage">Stage / Autre</option>
