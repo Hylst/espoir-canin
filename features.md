@@ -12,7 +12,7 @@
 
 - **Accueil** : hero avec CTA, présentation, horaires, missions, valeurs
 - **Services** : éducation canine, rééducation comportementale, programme chiot
-- **Planning dynamique** : chargement JSON depuis `assets/events.json`, filtres par type (balade/cours/mantrailing/stage), masquage automatique des dates passées
+- **Planning dynamique** : chargement JSON depuis `assets/events.json`, filtres par type (cours/mantrailing/stage), masquage automatique des dates passées
 - **Tarifs** : grille tarifaire 2026, tableaux par catégorie
 - **Pension** : deux formules (chenil rustique avec parc, familiale au foyer)
 - **Croquettes** : vente alimentation Origin's, présentation gamme

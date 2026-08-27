@@ -37,7 +37,7 @@ No build/test/lint commands. Static site.
 ## Critical Files
 
 - **`assets/css/style.css`** — All design tokens in `:root`. Modify to change colors/typography globally.
-- **`assets/events.json`** — Event data for `planning.html`. Fields: `{ id, title, date, time, type, description, image }`. Event types: `balade`, `cours`, `mantrailing`, `stage`.
+- **`assets/events.json`** — Event data for `planning.html`. Fields: `{ id, title, date, time, type, description, image }`. Event types: `cours`, `mantrailing`, `stage`.
 - **`admin/auth.php`** — Admin password in plaintext. Gitignored. Do not commit.
 - **`.htaccess`** — Apache config: HTTPS redirect, gzip, cache, security headers.
 
@@ -68,7 +68,7 @@ Credentials are managed locally and deployed to LWS via FTP. Git history has bee
 - **Images**: WebP format. Lazy loading via `loading="lazy"`.
 - **Responsive**: Breakpoints at 768px (mobile) and 992px (desktop). Mobile menu uses `.is-open` toggle.
 - **Vanilla JS only**: DOM via `querySelector`/`querySelectorAll`. No frameworks.
-- **Event types**: Only `balade`, `cours`, `mantrailing`, `stage`. Each has a specific badge color + default image.
+- **Event types**: Only `cours`, `mantrailing`, `stage`. Each has a specific badge color + default image.
 
 ## Gotchas
 

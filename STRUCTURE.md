@@ -66,9 +66,9 @@ EspoirCaninv2/
     "id": 1,
     "date": "2026-01-15",
     "time": "10:00",
-    "type": "balade",
-    "title": "Balade collective Schirmeck",
-    "description": "Promenade d'1h30 en forêt...",
+    "type": "stage",
+    "title": "Stage sur le Rappel",
+    "description": "Stage collectif d'éducation...",
     "image": "assets/images/collectif-main.webp"
   }
 ]
@@ -78,7 +78,6 @@ EspoirCaninv2/
 
 | Type | Badge | Description |
 |------|-------|-------------|
-| `balade` | Vert | Balades éducatives en groupe |
 | `cours` | Bleu | Cours collectifs d'éducation |
 | `mantrailing` | Orange | Séances de pistage |
 | `stage` | Violet | Stages ou événements spéciaux |

@@ -4,7 +4,7 @@
 <head>
     <!-- ============================================
          ESPOIR CANIN - Page Planning & Collectifs
-         Calendrier des balades et cours collectifs
+         Calendrier des cours collectifs, stages et mantrailing
          Site : https://espoir-canin.fr/planning.html
     ============================================= -->
 
@@ -12,11 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO - Balises essentielles -->
-    <title>Planning Cours Collectifs & Mantrailing | Espoir Canin - Alsace 67</title>
+    <title>Planning Cours Collectifs, Stages & Mantrailing | Espoir Canin - Alsace 67</title>
     <meta name="description"
-        content="Consultez le planning des cours de groupe et séances de mantrailing chez Espoir Canin. Activités canines en Alsace, Natzwiller, Schirmeck.">
+        content="Consultez le planning des cours collectifs, stages et séances de mantrailing chez Espoir Canin. Activités canines en Alsace, Natzwiller, Schirmeck.">
     <meta name="keywords"
-        content="cours collectif éducation canine, mantrailing 67, planning activités chien, cours groupe chien">
+        content="cours collectif éducation canine, stage chien Alsace, mantrailing 67, planning activités chien, cours groupe chien">
     <meta name="author" content="Espoir Canin - David Koessler">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://espoir-canin.fr/planning.html">
@@ -34,9 +34,9 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://espoir-canin.fr/planning.html">
-    <meta property="og:title" content="Planning Balades & Cours Collectifs - Espoir Canin">
+    <meta property="og:title" content="Planning Cours Collectifs, Stages & Mantrailing - Espoir Canin">
     <meta property="og:description"
-        content="Prochaines dates de balades, cours collectifs et mantrailing. Inscrivez-vous aux activités canines en Alsace.">
+        content="Prochaines dates de cours collectifs, stages et mantrailing. Inscrivez-vous aux activités canines en Alsace.">
     <meta property="og:image" content="https://espoir-canin.fr/assets/images/collectif-main.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -45,8 +45,8 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Planning Balades & Cours Collectifs - Espoir Canin">
-    <meta name="twitter:description" content="Prochaines dates d'activités, cours collectifs et mantrailing en Alsace.">
+    <meta name="twitter:title" content="Planning Cours Collectifs, Stages & Mantrailing - Espoir Canin">
+    <meta name="twitter:description" content="Prochaines dates de cours collectifs, stages et mantrailing en Alsace.">
     <meta name="twitter:image" content="https://espoir-canin.fr/assets/images/collectif-main.webp">
 
     <!-- Polices Google -->
@@ -197,12 +197,6 @@
             }
         }
 
-        .event-type-balade {
-            border-color: #59d600 !important;
-            color: #59d600 !important;
-            background: rgba(89, 214, 0, 0.1) !important;
-        }
-
         .event-type-mantrailing {
             border-color: #ffaa00 !important;
             color: #ffaa00 !important;
@@ -213,6 +207,12 @@
             border-color: #00aaff !important;
             color: #00aaff !important;
             background: rgba(0, 170, 255, 0.1) !important;
+        }
+
+        .event-type-stage {
+            border-color: #a855f7 !important;
+            color: #a855f7 !important;
+            background: rgba(168, 85, 247, 0.1) !important;
         }
 
         .filter-container {
@@ -273,7 +273,7 @@
             style="padding: 100px 0 60px; background: var(--gradient-hero); text-align: center;">
             <div class="container">
                 <h1 style="font-size: 3rem; margin-bottom: 20px;">Planning & Collectifs</h1>
-                <p style="color: var(--color-text-muted); font-size: 1.2rem;">Les prochaines dates pour les cours et mantrailing !</p>
+                <p style="color: var(--color-text-muted); font-size: 1.2rem;">Les prochaines dates pour les cours collectifs, stages et mantrailing !</p>
             </div>
         </section>
 
@@ -284,7 +284,7 @@
                 <div class="activity-card">
                     <img src="assets/images/collectif-main.webp" alt="Cours Collectif" class="activity-image">
                     <div class="activity-content">
-                        <h2 style="color: var(--color-primary); margin-bottom: 15px;">Cours & Balades Collectives</h2>
+                        <h2 style="color: var(--color-primary); margin-bottom: 15px;">Cours Collectifs</h2>
                         <p style="margin-bottom: 20px;">
                             Les prestations collectives sont idéales pour travailler la socialisation de votre chien et
                             renforcer vos acquis en présence de distractions (autres chiens, bruits, environnements
