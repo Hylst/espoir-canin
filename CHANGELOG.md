@@ -6,6 +6,28 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ---
 
+## [2.2.0] - 2026-08-27
+
+### ✨ Ajouté
+- **Tarifs éducation individuelle** : « Séance individuelle 1h » (60 €) et « Séance individuelle 1h30 » (80 €)
+- **Filtre « Stages »** sur la page planning (les stages apparaissent maintenant aussi dans le hero et les metas SEO)
+
+### 🔄 Modifié
+- **Planning** : retrait complet du service « balade collective » (textes, metas SEO, filtre, CSS `.event-type-balade`) + ajout CSS `.event-type-stage`
+- **Tarifs** : carte « Cours collectif » (suppression de "Balade collective"), libellés standardisés sans parenthèses, police réduite sur mobile pour garder les libellés sur une ligne
+- **Accueil** : nouveaux horaires « Lundi au Vendredi : 9h - 19h (Mercredi jusqu'à 18h45) » à partir du 1er septembre + mention dédiée
+- **Admin** : option « Balade » retirée du formulaire d'ajout d'événement ; image par défaut simplifiée
+
+### 🐛 Correction
+- **Pages "noires" sur smartphone** : le scroll-reveal masquait tout le contenu si l'`IntersectionObserver` ne se déclenchait pas. Encadrement de l'API avec fallback = contenu toujours visible + désactivation de l'animation sur écrans tactiles (`@media (hover: none)`)
+
+### 📝 Documentation
+- **AGENTS.md** : types d'événements mis à jour (`cours`, `mantrailing`, `stage`)
+- **STRUCTURE.md** : exemple JSON et tableau des types d'événements mis à jour
+- **features.md** : filtres par type et tarifs mis à jour
+
+---
+
 ## [2.1.0] - 2026-07-07
 
 ### Sécurité

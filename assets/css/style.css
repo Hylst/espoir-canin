@@ -393,7 +393,7 @@ section {
    Scroll Reveal
    Les éléments apparaissent en fondu
    quand ils entrent dans le viewport
------------------------------------ */
+   ----------------------------------- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -403,6 +403,18 @@ section {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Filet de sécurité : sur les écrans tactiles
+   (smartphones/tablettes), jamais de contenu masqué.
+   Évite les pages "noires" si l'IntersectionObserver
+   ne se déclenche pas correctement. */
+@media (hover: none), (pointer: coarse) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* -----------------------------------

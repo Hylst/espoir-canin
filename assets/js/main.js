@@ -69,27 +69,35 @@ document.addEventListener('DOMContentLoaded', () => {
     ------------------------------------------- */
     const revealElements = document.querySelectorAll('section, .service-card, .pension-card, .price-card, .activity-card, .event-card');
 
-    // Configuration de l'observer
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // L'élément est visible → on ajoute les classes d'animation
-                entry.target.classList.add('reveal', 'active');
+    // Vérifier si IntersectionObserver est supporté
+    if ('IntersectionObserver' in window) {
+        // Configuration de l'observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // L'élément est visible → on ajoute les classes d'animation
+                    entry.target.classList.add('reveal', 'active');
 
-                // On arrête d'observer cet élément (animation unique)
-                revealObserver.unobserve(entry.target);
-            }
+                    // On arrête d'observer cet élément (animation unique)
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15, // Déclencher quand 15% de l'élément est visible
+            rootMargin: '0px 0px -50px 0px' // Un peu de marge en bas
         });
-    }, {
-        threshold: 0.15, // Déclencher quand 15% de l'élément est visible
-        rootMargin: '0px 0px -50px 0px' // Un peu de marge en bas
-    });
 
-    // On observe tous les éléments
-    revealElements.forEach(el => {
-        el.classList.add('reveal');
-        revealObserver.observe(el);
-    });
+        // On observe tous les éléments
+        revealElements.forEach(el => {
+            el.classList.add('reveal');
+            revealObserver.observe(el);
+        });
+    } else {
+        // Fallback pour les vieux navigateurs : contenu visible directement
+        revealElements.forEach(el => {
+            el.classList.add('active');
+        });
+    }
 
     /* -------------------------------------------
        LOGS (debug - à retirer en production)

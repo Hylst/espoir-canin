@@ -4,7 +4,7 @@
 
 - **Menu responsive** : hamburger sur mobile, navigation complète sur desktop
 - **Header dynamique** : se compacte au scroll (opacité + padding)
-- **Scroll reveal** : animations d'apparition au défilement (Intersection Observer)
+- **Scroll reveal** : animations d'apparition au défilement (Intersection Observer, avec fallback pour vieux navigateurs + désactivé sur écrans tactiles pour éviter les pages "noires")
 - **Smooth scroll** : navigation par ancres fluide (CSS + JS)
 - **Design sombre** : thème dark avec accents verts (#59d600), glassmorphism, cartes avec bordure translucide
 
