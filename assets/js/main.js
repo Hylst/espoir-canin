@@ -19,6 +19,54 @@
  * C'est une bonne pratique pour éviter les erreurs
  * quand on essaie de manipuler des éléments pas encore présents.
  */
+/* ===========================================
+   PURGE ANTI-CACHE / ANTI-FLASH (exécution immédiate)
+   Ce bloc s'exécute dès le chargement du script, avant
+   même DOMContentLoaded, et quoi qu'il arrive. Il garantit
+   qu'aucun contenu ne peut rester masqué, même si un ancien
+   CSS/JS provenant du cache navigateur (version précédente)
+   est encore actif. Résout les "pages/sections noires" qui
+   nécessitaient un scroll ou un cache vidé.
+============================================ */
+(function () {
+    // 1) Injecte un style bloquant toute animation/masquage résiduel.
+    var ga = document.createElement('style');
+    ga.id = 'cachebuster-guard';
+    ga.textContent =
+        '.reveal, .reveal.active, .reveal.revealed, .reveal:not(.revealed) {' +
+        '  opacity: 1 !important;' +
+        '  visibility: visible !important;' +
+        '  transform: none !important;' +
+        '  transition: none !important;' +
+        '  animation: none !important;' +
+        '}';
+    (document.head || document.documentElement).appendChild(ga);
+
+    // 2) Retire toute classe reveal sur les éléments déjà dans le DOM.
+    document.addEventListener('DOMContentLoaded', function () {
+        var els = document.querySelectorAll('.reveal, .revealed, .active');
+        for (var i = 0; i < els.length; i++) {
+            els[i].classList.remove('reveal', 'revealed', 'active');
+        }
+    });
+
+    // 3) Nettoie les anciens Service Workers / caches (si présents).
+    if ('caches' in window) {
+        caches.keys().then(function (keys) {
+            keys.forEach(function (key) { caches.delete(key); });
+        }).catch(function () {});
+    }
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (regs) {
+            regs.forEach(function (reg) { reg.unregister(); });
+        }).catch(function () {});
+    }
+})();
+
+/* ===========================================
+   SCRIPTS PRINCIPAUX
+============================================ */
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------

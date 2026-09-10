@@ -20,6 +20,11 @@ Le problème persistait sur mobile car le navigateur servait encore les **ancien
 - **Cache-busting `?v=2.2.1`** ajouté sur `style.css` et `main.js` de toutes les pages.
 - **`.htaccess`** : le HTML n'est plus mis en cache (`Expires text/html 0s` + `Cache-Control: no-cache`) pour que les nouvelles versions soient prises en compte immédiatement.
 
+### 🛡️ Purge anti-cache déterministe (JS)
+Malgré des en-têtes corrects en production, un navigateur mobile pouvait encore servir un **ancien `main.js`/`style.css` en cache local**, même après hard refresh, d'où des zones noires persistantes en navigation normale (absentes en navigation privée).
+- **Bloc exécuté immédiatement** en tête de `main.js` : injecte un style `!important` forçant `opacity:1 / visibility:visible / transform:none` sur toute classe `.reveal`, retire ces classes du DOM, et **purge les anciens Service Workers + caches** (si un vieux SW était enregistré sur l'appareil).
+- Cache-busting du JS passé à `main.js?v=2.2.2` sur les 10 pages.
+
 ### 📝 Divers
 
 ---
