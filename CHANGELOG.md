@@ -6,6 +6,24 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ---
 
+## [2.2.1] - 2026-09-10
+
+### 🐛 Correction
+- **Pages "noires" / zones vides (smartphone ET desktop, page Tarifs notamment) : SUPPRESSION COMPLÈTE du scroll-reveal.** L'animation masquait le contenu avec `opacity: 0` en attendant l'`IntersectionObserver`, et il suffisait d'un fichier CSS/JS en cache désynchronisé pour tout cacher (« s'affiche une seconde puis s'efface »).
+  - Le mécanisme décoratif de scroll-reveal a été **entièrement retiré** (CSS + JS).
+  - Le contenu est désormais **toujours visible à 100 %**, sur desktop comme sur mobile, quel que soit le navigateur ou le cache.
+  - Plus aucun `opacity: 0` ni `transform` lié au reveal ; les autres fonctionnalités (menu mobile, header dynamique, smooth scroll) sont conservées.
+
+### 🚀 Amélioration anti-cache (smartphone)
+Le problème persistait sur mobile car le navigateur servait encore les **anciens `style.css` + `main.js`** en cache (le HTML étant lui-même mis en cache 1 jour par le `.htaccess`).
+- **Garde-fou inline sur les 11 pages** : un `<style>` dans le `<head>` force `opacity:1 !important` sur toute classe `.reveal` résiduelle. Comme il est dans le HTML, il s'applique même si d'anciens CSS/JS sont en cache → plus aucune zone noire.
+- **Cache-busting `?v=2.2.1`** ajouté sur `style.css` et `main.js` de toutes les pages.
+- **`.htaccess`** : le HTML n'est plus mis en cache (`Expires text/html 0s` + `Cache-Control: no-cache`) pour que les nouvelles versions soient prises en compte immédiatement.
+
+### 📝 Divers
+
+---
+
 ## [2.2.0] - 2026-08-27
 
 ### ✨ Ajouté

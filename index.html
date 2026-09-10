@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -10,7 +10,7 @@
          Contact : David Koessler - espoir.canin@outlook.fr
          
          Conception : Geoffroy Streit
-         Dernière mise à jour : Janvier 2025
+         Dernière mise à jour : Septembre 2026
     ============================================= -->
 
     <!-- Encodage et viewport pour mobile -->
@@ -218,7 +218,11 @@
         rel="stylesheet">
 
     <!-- Feuille de styles principale -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.2.1">
+    <!-- Garde-fou anti-cache : garantit que le contenu est toujours visible, meme si un ancien scroll-reveal est en cache. -->
+    <style>
+        .reveal,.reveal.active,.reveal.revealed,.reveal:not(.revealed){opacity:1 !important;visibility:visible !important;transform:none !important;transition:none !important;}
+    </style>
 </head>
 
 <body>
@@ -328,7 +332,7 @@
                     <div class="info-card hover-scale"
                         style="background: var(--color-surface); padding: 30px; border-radius: 15px; margin-bottom: 40px; box-shadow: var(--shadow-card);">
                         <h3 style="color: var(--color-primary); margin-bottom: 15px;">Horaires d'ouverture</h3>
-                        <p><strong>Lundi au Vendredi :</strong> 9h - 19h (Mercredi jusqu'à 18h45)</p>
+                        <p><strong>Lundi au Vendredi :</strong> 9h - 19h (Mercredi jusqu'à 18h30)</p>
                         <p><strong>Samedi :</strong> 9h - 17h</p>
                         <p><strong>Dimanche et Jours Fériés :</strong> 10h - 12h</p>
                         <p style="margin-top: 10px; font-size: 0.9em; color: var(--color-text-muted);">
@@ -478,7 +482,7 @@
          Le JavaScript est chargé en fin de page pour
          ne pas bloquer le rendu du contenu.
     ============================================ -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=2.2.1"></script>
 </body>
 
 </html>

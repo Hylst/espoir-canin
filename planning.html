@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -55,7 +55,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.2.1">
+    <!-- Garde-fou anti-cache : garantit que le contenu est toujours visible, meme si un ancien scroll-reveal est en cache. -->
+    <style>
+        .reveal,.reveal.active,.reveal.revealed,.reveal:not(.revealed){opacity:1 !important;visibility:visible !important;transform:none !important;transition:none !important;}
+    </style>
     <style>
         /* Specific Styles for Planning */
         .activity-card {
@@ -389,7 +393,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=2.2.1"></script>
     <script>
         // Inline script for events loading for now, or move to main.js if preferred.
         // Let's keep it simple and clean.

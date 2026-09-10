@@ -7,7 +7,6 @@
    
    Ce fichier gère les interactions du site :
    - Menu mobile (hamburger)
-   - Animations de révélation au scroll
    - Header dynamique (compact au scroll)
    
    Conception : Geoffroy Streit
@@ -57,47 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* -------------------------------------------
-       SCROLL REVEAL - Animations d'apparition
-       
-       Les sections et cartes apparaissent avec
-       une animation quand elles entrent dans
-       le viewport (zone visible de l'écran).
-       
-       On utilise l'Intersection Observer API,
-       qui est plus performante que d'écouter
-       l'événement scroll.
+       SCROLL REVEAL - SUPPRIMÉ
+
+       L'ancienne animation masquait le contenu avec
+       `opacity: 0` en attendant l'IntersectionObserver,
+       ce qui provoquait des pages/sections vides
+       ("noires") sur certains navigateurs et contextes
+       de cache. Pour une fiabilité totale, cette
+       fonctionnalité décorative a été entièrement
+       retirée : le contenu est TOUJOURS visible,
+       sans aucune animation d'apparition.
     ------------------------------------------- */
-    const revealElements = document.querySelectorAll('section, .service-card, .pension-card, .price-card, .activity-card, .event-card');
-
-    // Vérifier si IntersectionObserver est supporté
-    if ('IntersectionObserver' in window) {
-        // Configuration de l'observer
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // L'élément est visible → on ajoute les classes d'animation
-                    entry.target.classList.add('reveal', 'active');
-
-                    // On arrête d'observer cet élément (animation unique)
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15, // Déclencher quand 15% de l'élément est visible
-            rootMargin: '0px 0px -50px 0px' // Un peu de marge en bas
-        });
-
-        // On observe tous les éléments
-        revealElements.forEach(el => {
-            el.classList.add('reveal');
-            revealObserver.observe(el);
-        });
-    } else {
-        // Fallback pour les vieux navigateurs : contenu visible directement
-        revealElements.forEach(el => {
-            el.classList.add('active');
-        });
-    }
 
     /* -------------------------------------------
        LOGS (debug - à retirer en production)
