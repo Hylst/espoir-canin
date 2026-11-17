@@ -1,65 +1,47 @@
 [
     {
-        "id": 35,
-        "title": "Cours Collectif Schirmeck",
-        "date": "2026-07-12",
+        "id": 48,
+        "title": "Cours collectif Molsheim",
+        "date": "2026-11-15",
         "time": "10:30",
         "type": "cours",
-        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "description": "Devant la gare de Molsheim - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
         "image": "assets\/images\/collectif-side.webp"
     },
     {
-        "id": 36,
-        "title": "Cours collectif Schirmeck",
-        "date": "2026-07-26",
-        "time": "10:30",
-        "type": "cours",
-        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
-        "image": "assets\/images\/collectif-side.webp"
-    },
-    {
-        "id": 37,
-        "title": "Cours collectif Schirmeck",
-        "date": "2026-08-09",
-        "time": "10:30",
-        "type": "cours",
-        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
-        "image": "assets\/images\/collectif-side.webp"
-    },
-    {
-        "id": 38,
-        "title": "Cours collectif Schirmeck",
-        "date": "2026-08-23",
-        "time": "10:30",
-        "type": "cours",
-        "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
-        "image": "assets\/images\/collectif-side.webp"
-    },
-    {
-        "id": 39,
-        "title": "Stage sur le Rappel",
-        "date": "2026-09-05",
+        "id": 49,
+        "title": "Stage milieu urbain",
+        "date": "2026-11-28",
         "time": "09:30",
         "type": "stage",
-        "description": "La Broque - Lieu à définir - 50€ par participants - inscription uniquement par SMS - Pré-paiement obligatoire",
+        "description": "Lieu de rdv à définir - 9h30 à 12h00 - 50€ par participant - Inscription uniquement par sms - pré-paiement obligatoire",
         "image": "assets\/images\/collectif-side.webp"
     },
     {
-        "id": 40,
+        "id": 50,
         "title": "Cours collectif Schirmeck",
-        "date": "2026-09-06",
+        "date": "2026-11-29",
         "time": "10:30",
         "type": "cours",
         "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
         "image": "assets\/images\/collectif-side.webp"
     },
     {
-        "id": 41,
+        "id": 51,
         "title": "Cours collectif Schirmeck",
-        "date": "2026-09-06",
+        "date": "2026-12-13",
         "time": "10:30",
         "type": "cours",
         "description": "Parking Bergopre - 10h30 à 11h30 - 15€ par participant - inscription uniquement par SMS",
+        "image": "assets\/images\/collectif-side.webp"
+    },
+    {
+        "id": 52,
+        "title": "Balade groupée Schirmeck",
+        "date": "2026-12-20",
+        "time": "10:00",
+        "type": "stage",
+        "description": "Balade dans Schirmeck - inscription uniquement par SMS - lieu de départ donné aux inscrits - 5€ par participants - pré-paiement obligatoire - 10H à 12h ",
         "image": "assets\/images\/collectif-side.webp"
     }
 ]
