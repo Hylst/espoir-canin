@@ -172,7 +172,7 @@ $events = json_decode(file_get_contents($eventsFile), true) ?? [];
         </div>
 
         <!-- Liste des événements -->
-        <h2>Événements à venir (<?= count($events) ?>)</h2>
+        <h2>Événements enregistrés (<?= count($events) ?>)</h2>
         <div class="event-list">
             <?php foreach ($events as $event): ?>
                 <div class="admin-event-card">

@@ -404,7 +404,15 @@
             fetch('assets/events.json')
                 .then(response => response.json())
                 .then(events => {
-                    renderEvents(events);
+                    // Ne garder que les événements à venir (aujourd'hui inclus)
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+
+                    const upcomingEvents = events
+                        .filter(event => parseEventDate(event.date) >= today)
+                        .sort((a, b) => parseEventDate(a.date) - parseEventDate(b.date));
+
+                    renderEvents(upcomingEvents);
 
                     // Filter Logic
                     filterBtns.forEach(btn => {
@@ -415,9 +423,9 @@
 
                             const filterType = btn.getAttribute('data-filter');
                             if (filterType === 'all') {
-                                renderEvents(events);
+                                renderEvents(upcomingEvents);
                             } else {
-                                const filtered = events.filter(e => e.type === filterType);
+                                const filtered = upcomingEvents.filter(e => e.type === filterType);
                                 renderEvents(filtered);
                             }
                         });
@@ -428,15 +436,21 @@
                     container.innerHTML = '<p style="text-align: center; color: var(--color-danger);">Impossible de charger les événements pour le moment.</p>';
                 });
 
+            // Interprète "YYYY-MM-DD" comme une date locale (évite le décalage UTC)
+            function parseEventDate(dateString) {
+                const [year, month, day] = dateString.split('-').map(Number);
+                return new Date(year, month - 1, day);
+            }
+
             function renderEvents(eventsList) {
                 container.innerHTML = '';
                 if (eventsList.length === 0) {
-                    container.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1 / -1;">Aucun événement trouvé pour cette catégorie.</p>';
+                    container.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1 / -1;">Aucun événement à venir pour le moment.</p>';
                     return;
                 }
 
                 eventsList.forEach(event => {
-                    const dateObj = new Date(event.date);
+                    const dateObj = parseEventDate(event.date);
                     const formattedDate = dateObj.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
 
                     const card = document.createElement('div');
