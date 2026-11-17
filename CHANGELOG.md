@@ -6,6 +6,19 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ---
 
+## [2.2.3] - 2026-11-17
+
+### 🔄 Modifié
+- **Accueil** : fermeture du mercredi à **18h** (au lieu de 18h30) et suppression de la mention « Nouveaux horaires à partir du 1er septembre ». JSON-LD aligné sur 18h.
+- **Services** : suppression de la carte « Avant l'Adoption & Chiot » (séance de conseils 1h30) et nettoyage des balises SEO qui la mentionnaient.
+- **Croquettes** : inversion des photos Body-Fit / Sensitive-Skin pour que chaque carte affiche le bon sac.
+- **Planning** : filtre automatique des dates passées (aujourd'hui inclus) + tri chronologique. L'admin affiche désormais « Événements enregistrés ».
+- **Déploiement** : `main.js` passé en `?v=2.2.3` pour charger le correctif anti-cache sur les 10 pages.
+- **SEO** : sitemap corrigé (images `.webp` au lieu de `.jpg`), favicon pointant vers le fichier racine.
+- **Données** : `assets/events.json` synchronisé avec la production.
+
+---
+
 ## [2.2.1] - 2026-09-10
 
 ### 🐛 Correction

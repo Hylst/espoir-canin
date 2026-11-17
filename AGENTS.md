@@ -23,8 +23,8 @@ No build/test/lint commands. Static site.
 ├── index.html, services.html, ...   # Static HTML pages (no templating)
 ├── assets/
 │   ├── css/style.css                # Single stylesheet, CSS variables in :root
-│   ├── js/main.js                   # Vanilla JS (mobile menu, scroll reveal, header)
-│   ├── images/                      # 27 WebP images
+│   ├── js/main.js                   # Vanilla JS (mobile menu, header, garde-fou anti-cache)
+│   ├── images/                      # 30 images WebP
 │   └── events.json                  # Event data for planning page
 ├── admin/                           # PHP admin panel (CRUD events)
 │   └── auth.php                     # Session-based auth (plaintext password, gitignored)
@@ -60,6 +60,8 @@ Credentials are managed locally and deployed to LWS via FTP. Git history has bee
 - **LWS shared hosting** (Apache). Deploy via FTP to `public_html/`.
 - **No CI/CD**. No auto-deploy. GitHub is sync-only.
 - After deploying, verify admin panel (`/admin/`) and contact form submissions work.
+- **Never overwrite `assets/events.json` with the local copy**: production is the source of truth because the admin writes to it directly. Download it first, or skip that file during FTP uploads.
+- `admin/auth.php` and `contact_process.php` already exist on the server (gitignored). Only upload them when intentionally changing the admin password or SMTP credentials.
 
 ## Conventions
 
@@ -73,10 +75,11 @@ Credentials are managed locally and deployed to LWS via FTP. Git history has bee
 ## Gotchas
 
 - `data/events.json` does NOT exist. `assets/events.json` is the single source of truth.
+- The root `events.json` is not used by the site; do not upload it (now ignored by Git).
 - `admin/auth.php` must exist on LWS for the admin panel to work — it's gitignored, so FTP it separately.
 - `contact_process.php` must exist on LWS for the contact form to work — also gitignored, FTP separately.
 - CSS has unstaged formatting diffs (comments moved to separate lines by an auto-formatter). Harmless but noisy in `git status`.
 - `.htaccess` blocks `send_mail.php` and dotfiles. JSON/MD files explicitly allowed.
-- `conseils.html` is "en construction" — incomplete page.
+- `conseils.html` is now a complete content page (no longer "en construction").
 - `package.json` + `node_modules/` are unused locally (nodemailer/sharp were for the old Vercel function).
 - After credentials are rotated (Gmail app password, LWS SMTP), update both local gitignored files AND re-upload to LWS FTP.

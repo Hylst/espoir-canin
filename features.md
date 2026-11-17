@@ -4,20 +4,20 @@
 
 - **Menu responsive** : hamburger sur mobile, navigation complète sur desktop
 - **Header dynamique** : se compacte au scroll (opacité + padding)
-- **Scroll reveal** : animations d'apparition au défilement (Intersection Observer, avec fallback pour vieux navigateurs + désactivé sur écrans tactiles pour éviter les pages "noires")
+- **Garde-fou anti-cache** : purge des anciens Service Workers/caches et protection contre les zones noires sur mobile (le scroll-reveal a été retiré)
 - **Smooth scroll** : navigation par ancres fluide (CSS + JS)
 - **Design sombre** : thème dark avec accents verts (#59d600), glassmorphism, cartes avec bordure translucide
 
 ## Contenu & Pages
 
 - **Accueil** : hero avec CTA, présentation, horaires, missions, valeurs
-- **Services** : éducation canine, rééducation comportementale, programme chiot
+- **Services** : éducation canine, rééducation comportementale, demi-journées éducatives
 - **Planning dynamique** : chargement JSON depuis `assets/events.json`, filtres par type (cours/mantrailing/stage), masquage automatique des dates passées
 - **Tarifs** : grille tarifaire 2026, tableaux par catégorie
 - **Pension** : deux formules (chenil rustique avec parc, familiale au foyer)
 - **Croquettes** : vente alimentation Origin's, présentation gamme
 - **Contact** : formulaire avec envoi PHP/PHPMailer (double SMTP LWS + Gmail fallback), carte Google Maps, coordonnées
-- **Pages légales** : CGV (HTML + ODT + PDF téléchargeables), mentions légales
+- **Pages légales** : CGV (HTML + PDF téléchargeables), mentions légales
 
 ## Administration (back-office David)
 
@@ -29,7 +29,7 @@
 
 - **Images WebP** : format moderne, lazy loading (`loading="lazy"`)
 - **Compression Gzip** : HTML, CSS, JS, JSON, SVG (`.htaccess`)
-- **Cache navigateur** : 1 mois images/polices, 1 semaine CSS/JS, 1 jour HTML
+- **Cache navigateur** : 1 mois images/polices, 1 semaine CSS/JS, HTML revalidé systématiquement (no-cache)
 - **CSS variables** : design tokens centralisés, pas de feuilles dupliquées
 
 ## SEO

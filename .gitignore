@@ -4,14 +4,12 @@ node_modules/
 *.log
 *.jpeg
 
-# User Guides (Tracked by request, but ensuring no sensitive temp files)
-# ...
+# Export local du planning à la racine (non utilisé par le site)
+/events.json
 
 # Admin simple protection (if we had .htaccess in ignore, but we want it)
 admin/config.php
 
-GUIDE_MIGRATION_LWS.md
-GUIDE_GESTION_PLANNING.md
 admin/auth.php
 contact_process.php
 api/

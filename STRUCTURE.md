@@ -23,8 +23,8 @@ EspoirCaninv2/
 │   ├── css/
 │   │   └── style.css       # Feuille de styles principale (~570 lignes, variables CSS)
 │   ├── js/
-│   │   └── main.js         # Scripts (menu mobile, scroll reveal, header)
-│   ├── images/             # Images WebP (22 fichiers)
+│   │   └── main.js         # Scripts (menu mobile, header, garde-fou anti-cache)
+│   ├── images/             # Images WebP (30 fichiers)
 │   ├── docs/
 │   │   └── cgv_espir_canin.pdf  # CGV téléchargeables
 │   ├── events.json         # Données du planning
@@ -111,4 +111,4 @@ EspoirCaninv2/
 
 ---
 
-*Dernière mise à jour : juillet 2026*
+*Dernière mise à jour : novembre 2026*
